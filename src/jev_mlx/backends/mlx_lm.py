@@ -58,6 +58,7 @@ class MLXLMBackend:
         self.prefill_step_size = prefill_step_size
         self.max_prompt_tokens = max_prompt_tokens
         self._lock = threading.RLock()
+        self._should_cancel = None
         self._make_cache = make_prompt_cache
         self._cache = LRUPromptCache(max_size=cache_entries, max_bytes=cache_bytes)
         quantization = config.get("quantization", config.get("quantization_config", {}))
@@ -87,6 +88,61 @@ class MLXLMBackend:
             "cache_types": sorted({type(c).__name__ for c in make_prompt_cache(self.model)}),
         }
 
+    @classmethod
+    def from_loaded_model(
+        cls,
+        model,
+        tokenizer,
+        *,
+        identity: dict,
+        prefill_step_size: int = 256,
+        max_prompt_tokens: int = 4096,
+        cache_bytes: int = 512 * 1024**2,
+        cache_entries: int = 16,
+        should_cancel=None,
+    ):
+        """Share an already-loaded text model without loading or copying its weights.
+
+        The model must implement the MLX-LM callable/cache contract and return an
+        array of logits. A caller using a VLM may pass a text-only logits view.
+        The caller owns model lifetime and serializes other users of these weights;
+        this backend owns a separate bounded prompt cache. ``should_cancel`` is an
+        optional callable checked at completed prefill boundaries and before scoring.
+        It never interrupts an in-flight Metal operation or mutates saved snapshots.
+        """
+        if not callable(model) or not callable(getattr(tokenizer, "encode", None)):
+            raise ValueError("Expected a callable loaded model and a text tokenizer")
+        if not isinstance(identity, dict):
+            raise ValueError("identity must describe the caller-owned model")
+        if isinstance(prefill_step_size, bool) or not isinstance(prefill_step_size, int) \
+                or prefill_step_size < 1:
+            raise ValueError("prefill_step_size must be positive")
+        if any(isinstance(value, bool) or not isinstance(value, int) for value in
+               (max_prompt_tokens, cache_bytes, cache_entries)) \
+                or max_prompt_tokens < 64 or cache_bytes < 1 or cache_entries < 2:
+            raise ValueError("Invalid prompt/cache limits")
+        if should_cancel is not None and not callable(should_cancel):
+            raise ValueError("should_cancel must be callable")
+        import mlx.core as mx
+        from mlx_lm.models.cache import LRUPromptCache, make_prompt_cache
+
+        backend = cls.__new__(cls)
+        backend.mx = mx
+        backend.model, backend.tokenizer = model, tokenizer
+        backend.load_ms = 0.0
+        backend.prefill_step_size = prefill_step_size
+        backend.max_prompt_tokens = max_prompt_tokens
+        backend._lock = threading.RLock()
+        backend._should_cancel = should_cancel
+        backend._make_cache = make_prompt_cache
+        backend._cache = LRUPromptCache(max_size=cache_entries, max_bytes=cache_bytes)
+        backend.identity = copy.deepcopy(identity)
+        return backend
+
+    def _check_cancelled(self):
+        if self._should_cancel is not None and self._should_cancel():
+            raise InterruptedError("Decision inference cancelled")
+
     def clear_cache(self):
         with self._lock:
             self._cache.trim_to(n_sequences=0)
@@ -94,10 +150,12 @@ class MLXLMBackend:
 
     def _prefill(self, tokens, cache):
         for start in range(0, len(tokens), self.prefill_step_size):
+            self._check_cancelled()
             chunk = tokens[start : start + self.prefill_step_size]
             self.model(self.mx.array([chunk]), cache=cache)
             # The unused head is lazy. Evaluate all recurrent AND KV states.
             self.mx.eval([c.state for c in cache])
+            self._check_cancelled()
 
     def _prepare(self, request, mode, cache_key, use_cache):
         prompt = prepare_prompt(self.tokenizer, request, mode=mode)
@@ -163,23 +221,28 @@ class MLXLMBackend:
     def prewarm(self, request: DecisionRequest, *, cache_key=None):
         """Compute only the stable prefix; never precompute or cache a final answer."""
         with self._lock:
+            self._check_cancelled()
             start = time.perf_counter()
             _, _, _, info = self._prepare(request, "code", cache_key, True)
             self.mx.synchronize()
+            self._check_cancelled()
             return {"cache": info, "total_ms": (time.perf_counter() - start) * 1000}
 
     def score(self, request: DecisionRequest, *, cache_key=None, use_cache=True) -> BackendOutput:
         started = time.perf_counter()
         with self._lock:
+            self._check_cancelled()
             inference_start = time.perf_counter()
             prompt, cache, suffix, info = self._prepare(request, "code", cache_key, use_cache)
             self._prefill(suffix[:-1], cache)
+            self._check_cancelled()
             logits = self.model(self.mx.array([suffix[-1:]]), cache=cache)[0, -1, :]
             chosen = logits[self.mx.array([c.token_id for c in prompt.choices])].astype(
                 self.mx.float32
             )
             self.mx.eval(chosen, [c.state for c in cache])
             self.mx.synchronize()
+            self._check_cancelled()
             values = chosen.tolist()
             timing = self._timing(started, inference_start)
             return BackendOutput(

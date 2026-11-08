@@ -84,3 +84,26 @@ the model understood the user.
 
 See the [architecture](architecture.md) for validation limits, cache boundaries,
 result semantics, and execution guarantees.
+
+## Share caller-owned loaded weights
+
+`MLXLMBackend.from_loaded_model(model, tokenizer, identity=..., should_cancel=...)`
+constructs a backend without calling a loader or copying model weights. Wrap it
+with `MLXDecisionEngine(backend=backend)`. The model must return MLX logits arrays
+and expose the MLX-LM cache contract; VLM callers may supply a text logits view.
+The application owns model lifetime and must serialize generation and scoring.
+The backend owns a separate bounded LRU cache. Discard it when replacing the model.
+`should_cancel` optionally stops work between completed prefill chunks and prevents
+returning a decision after cancellation; it cannot interrupt in-flight GPU work.
+
+```python
+from jev_mlx.backends.mlx_lm import MLXLMBackend
+
+backend = MLXLMBackend.from_loaded_model(
+    loaded_model, loaded_tokenizer, identity={"name": "my-loaded-model"},
+    cache_bytes=1024**3,
+)
+engine = MLXDecisionEngine(backend=backend)
+backend.prewarm(request, cache_key="desktop")
+result = engine.decide(request, cache_key="desktop")
+```
