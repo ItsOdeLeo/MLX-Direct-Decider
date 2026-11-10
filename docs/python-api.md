@@ -90,11 +90,13 @@ result semantics, and execution guarantees.
 `MLXLMBackend.from_loaded_model(model, tokenizer, identity=..., should_cancel=...)`
 constructs a backend without calling a loader or copying model weights. Wrap it
 with `MLXDecisionEngine(backend=backend)`. The model must return MLX logits arrays
-and expose the MLX-LM cache contract; VLM callers may supply a text logits view.
+and expose the MLX-LM cache contract. Passing a VLM's text logits view is not verified.
 The application owns model lifetime and must serialize generation and scoring.
 The backend owns a separate bounded LRU cache. Discard it when replacing the model.
 `should_cancel` optionally stops work between completed prefill chunks and prevents
 returning a decision after cancellation; it cannot interrupt in-flight GPU work.
+It also applies to the prompt prefill of `generate_baseline`, but not to its
+token-generation phase. It can only be set through `from_loaded_model`.
 
 ```python
 from mlx_direct_decider.backends.mlx_lm import MLXLMBackend

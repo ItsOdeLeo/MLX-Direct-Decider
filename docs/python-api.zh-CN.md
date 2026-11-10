@@ -72,7 +72,7 @@ if decision.status == "selected":
 
 ## 共享调用方已加载的权重
 
-`MLXLMBackend.from_loaded_model(model, tokenizer, identity=..., should_cancel=...)` 直接用已加载的模型构建后端，不调用加载器，也不复制权重。用 `MLXDecisionEngine(backend=backend)` 包装后使用。模型须返回 MLX logits 数组，并遵循 MLX-LM 缓存约定；VLM 调用方可以传入只输出文本 logits 的视图。模型的生命周期由应用负责，生成与打分必须由应用串行化。后端自带一个独立、有上限的 LRU 缓存；更换模型时请丢弃该后端。`should_cancel` 是可选的：它在每个预填充分块完成后检查，取消后不会返回决策；它无法中断正在 GPU 上执行的计算。
+`MLXLMBackend.from_loaded_model(model, tokenizer, identity=..., should_cancel=...)` 直接用已加载的模型构建后端，不调用加载器，也不复制权重。用 `MLXDecisionEngine(backend=backend)` 包装后使用。模型须返回 MLX logits 数组，并遵循 MLX-LM 缓存约定。传入 VLM 的文本 logits 视图这种用法尚未验证。模型的生命周期由应用负责，生成与打分必须由应用串行化。后端自带一个独立、有上限的 LRU 缓存；更换模型时请丢弃该后端。`should_cancel` 是可选的：它在每个预填充分块完成后检查，取消后不会返回决策；它无法中断正在 GPU 上执行的计算。它也作用于 `generate_baseline` 的提示预填充阶段，但之后的逐 token 生成阶段不检查取消。`should_cancel` 只能通过 `from_loaded_model` 设置。
 
 ```python
 from mlx_direct_decider.backends.mlx_lm import MLXLMBackend

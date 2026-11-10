@@ -104,11 +104,14 @@ class MLXLMBackend:
         """Share an already-loaded text model without loading or copying its weights.
 
         The model must implement the MLX-LM callable/cache contract and return an
-        array of logits. A caller using a VLM may pass a text-only logits view.
+        array of logits. Passing a VLM's text-only logits view is not verified.
         The caller owns model lifetime and serializes other users of these weights;
         this backend owns a separate bounded prompt cache. ``should_cancel`` is an
         optional callable checked at completed prefill boundaries and before scoring.
-        It never interrupts an in-flight Metal operation or mutates saved snapshots.
+        It also applies to the prompt prefill of ``generate_baseline``; the later
+        token-generation phase does not check it. It can only be set through this
+        constructor. It never interrupts an in-flight Metal operation or mutates
+        saved snapshots.
         """
         if not callable(model) or not callable(getattr(tokenizer, "encode", None)):
             raise ValueError("Expected a callable loaded model and a text tokenizer")
