@@ -66,6 +66,10 @@
       "zh-CN": "docs/implementation-plan.zh-CN.md"
     },
     {
+      "en": "docs/jevbench.md",
+      "zh-CN": "docs/jevbench.zh-CN.md"
+    },
+    {
       "en": "docs/multimodal.md",
       "zh-CN": "docs/multimodal.zh-CN.md"
     },

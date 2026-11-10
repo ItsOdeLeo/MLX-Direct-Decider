@@ -1,6 +1,6 @@
 # JevBench 公开题集：74.0%，无需额外 fine-tuning
 
-[English](jevbench.md) · [机器可读报告](../benchmarks/results/jevbench-20261015/report.json)
+[返回项目首页](../README.zh-CN.md) · [机器可读报告](../benchmarks/results/jevbench-20261015/report.json)
 
 2026 年 10 月 15 日，MLX Direct Decider 使用原有的
 `mlx-community/Qwen3.5-9B-OptiQ-4bit` 检查点，在 Apple M2 Max、64 GiB

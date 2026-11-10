@@ -1,6 +1,6 @@
 # JevBench public evaluation: 74.0% without additional fine-tuning
 
-[简体中文](jevbench.zh-CN.md) · [Machine-readable report](../benchmarks/results/jevbench-20261015/report.json)
+[Back to home](../README.md) · [Machine-readable report](../benchmarks/results/jevbench-20261015/report.json)
 
 On October 15, 2026, MLX Direct Decider with the frozen
 `mlx-community/Qwen3.5-9B-OptiQ-4bit` checkpoint answered **171/231 legacy public
