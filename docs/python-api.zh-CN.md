@@ -69,3 +69,19 @@ if decision.status == "selected":
 每次与决策有效性相关的状态或候选发生变化时，都要调用 `update_state`。回调在会话状态锁内运行，并且可以重入更新状态。即使回调失败，授权也会被消费，避免意外重复执行已经产生部分效果的操作。这些检查防止过期执行与重复执行，但不能证明模型理解了用户。
 
 有关验证上限、缓存边界、结果语义和执行保障，参见[架构说明](architecture.zh-CN.md)。
+
+## 共享调用方已加载的权重
+
+`MLXLMBackend.from_loaded_model(model, tokenizer, identity=..., should_cancel=...)` 直接用已加载的模型构建后端，不调用加载器，也不复制权重。用 `MLXDecisionEngine(backend=backend)` 包装后使用。模型须返回 MLX logits 数组，并遵循 MLX-LM 缓存约定；VLM 调用方可以传入只输出文本 logits 的视图。模型的生命周期由应用负责，生成与打分必须由应用串行化。后端自带一个独立、有上限的 LRU 缓存；更换模型时请丢弃该后端。`should_cancel` 是可选的：它在每个预填充分块完成后检查，取消后不会返回决策；它无法中断正在 GPU 上执行的计算。
+
+```python
+from mlx_direct_decider.backends.mlx_lm import MLXLMBackend
+
+backend = MLXLMBackend.from_loaded_model(
+    loaded_model, loaded_tokenizer, identity={"name": "my-loaded-model"},
+    cache_bytes=1024**3,
+)
+engine = MLXDecisionEngine(backend=backend)
+backend.prewarm(request, cache_key="desktop")
+result = engine.decide(request, cache_key="desktop")
+```

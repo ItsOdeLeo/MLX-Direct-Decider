@@ -97,7 +97,7 @@ The backend owns a separate bounded LRU cache. Discard it when replacing the mod
 returning a decision after cancellation; it cannot interrupt in-flight GPU work.
 
 ```python
-from jev_mlx.backends.mlx_lm import MLXLMBackend
+from mlx_direct_decider.backends.mlx_lm import MLXLMBackend
 
 backend = MLXLMBackend.from_loaded_model(
     loaded_model, loaded_tokenizer, identity={"name": "my-loaded-model"},
