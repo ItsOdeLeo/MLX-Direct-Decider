@@ -6,7 +6,9 @@ This is an explicit Q&A benchmark profile, not a change to the application defau
 """
 from contextlib import contextmanager
 from dataclasses import replace
+from functools import partial
 
+import jev_mlx.backends.mlx_lm as backend_module
 import jev_mlx.prompt as prompt_module
 
 from .bridge import CapacityError, make_request
@@ -55,11 +57,28 @@ def policy_context(name):
         prompt_module.POLICY = previous
 
 
+LAYOUTS = ("question_first", "state_first")
+
+
+@contextmanager
+def layout_context(layout):
+    """Experimental prompt order; question_first is the application default."""
+    previous = backend_module.prepare_prompt
+    backend_module.prepare_prompt = partial(prompt_module.prepare_prompt, layout=layout)
+    try:
+        yield
+    finally:
+        backend_module.prepare_prompt = previous
+
+
 class ProfileLocal:
-    def __init__(self, local, profile):
+    def __init__(self, local, profile, layout="question_first"):
+        if layout not in LAYOUTS:
+            raise ValueError(f"layout must be one of {LAYOUTS}")
         self.engine = local.engine
         self.model_name = local.model_name
         self.profile = profile
+        self.layout = layout
 
     def decide(self, state, question, labels=None):
         request, mapping = make_request(state, question, labels)
@@ -71,9 +90,9 @@ class ProfileLocal:
                 # Never truncate a task to fit the shorter native question field.
                 request = replace(request, question="Answer the full typed question in USER_UTTERANCE using CURRENT_STATE and CHOICES.")
         try:
-            with policy_context(self.profile):
+            with policy_context(self.profile), layout_context(self.layout):
                 result = self.engine.decide(request, use_cache=True,
-                                            cache_key="question-study-" + self.profile)
+                                            cache_key=f"question-study-{self.profile}-{self.layout}")
         except ValueError as exc:
             if "Prompt exceeds" in str(exc):
                 raise CapacityError(str(exc)) from exc

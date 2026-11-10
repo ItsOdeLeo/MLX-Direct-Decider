@@ -93,7 +93,9 @@ def _prefix(encoded, full):
     return tuple(full[:end])
 
 
-def prepare_prompt(tokenizer, request: DecisionRequest, *, mode="code") -> PreparedPrompt:
+def prepare_prompt(
+    tokenizer, request: DecisionRequest, *, mode="code", layout="question_first"
+) -> PreparedPrompt:
     choices = compile_choices(tokenizer, request)
     if mode == "code":
         output = "Reply with only the option code, with no whitespace, explanation or punctuation."
@@ -117,15 +119,16 @@ def prepare_prompt(tokenizer, request: DecisionRequest, *, mode="code") -> Prepa
         for option in options:
             if option["id"] in values:
                 option["value"] = values[option["id"]]
-    stable = (
-        "QUESTION:\n"
-        + _json({"kind": request.kind, "question": request.question})
-        + "\nCURRENT_STATE (visible arrays are in displayed order):\n"
-        + _json(request.state)
-        + "\nCHOICES (codes are labels, not visible positions):\n"
-        + _json(options)
-        + "\nUSER_UTTERANCE:\n"
-    )
+    question = "QUESTION:\n" + _json({"kind": request.kind, "question": request.question})
+    state = "CURRENT_STATE (visible arrays are in displayed order):\n" + _json(request.state)
+    choices_text = "\nCHOICES (codes are labels, not visible positions):\n" + _json(options)
+    if layout == "question_first":
+        stable = question + "\n" + state + choices_text + "\nUSER_UTTERANCE:\n"
+    elif layout == "state_first":
+        # Experimental: a shared state leads, so several questions can fork from it.
+        stable = state + "\n" + question + choices_text + "\nUSER_UTTERANCE:\n"
+    else:
+        raise ValueError("layout must be question_first or state_first")
     content = stable + _json(request.utterance)
     text = tokenizer.apply_chat_template(
         [{"role": "system", "content": system}, {"role": "user", "content": content}],

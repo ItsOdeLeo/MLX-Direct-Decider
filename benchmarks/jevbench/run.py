@@ -13,7 +13,7 @@ from jevbench.summarize import summarize
 from jevbench.tasks import load_jsonl
 
 from .bridge import JevAdapter, LocalModel
-from .profiles import PROFILES, ProfileLocal
+from .profiles import LAYOUTS, PROFILES, ProfileLocal
 
 HARNESS_COMMIT = "609a664e81f46e03731600bd7bd9f1b7a61257c5"
 DATASET_HASHES = {
@@ -29,6 +29,8 @@ def main():
     parser.add_argument("--jevbench-root", required=True, type=Path)
     parser.add_argument("--output", required=True, type=Path)
     parser.add_argument("--profile", choices=PROFILES, default="qa_question_slot")
+    parser.add_argument("--layout", choices=LAYOUTS, default="question_first",
+                        help="Prompt order; state_first is experimental")
     args = parser.parse_args()
     harness = args.jevbench_root.resolve()
     revision = subprocess.check_output(
@@ -48,11 +50,14 @@ def main():
         parser.error("Keep raw run outputs outside the upstream JevBench checkout")
     output.mkdir(parents=True, exist_ok=False)
     local = LocalModel(args.model)
-    adapter = JevAdapter(ProfileLocal(local, args.profile))
+    adapter = JevAdapter(ProfileLocal(local, args.profile, args.layout))
     adapter.name += "-" + args.profile
+    if args.layout != "question_first":
+        adapter.name += "-" + args.layout
     environment = local.metadata()
     environment.update(
         profile=args.profile,
+        layout=args.layout,
         system_policy=PROFILES[args.profile],
         harness_commit=revision,
         dataset_sha256=DATASET_HASHES,

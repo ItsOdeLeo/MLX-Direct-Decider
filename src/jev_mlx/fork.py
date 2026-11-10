@@ -22,14 +22,10 @@ matrix shapes; ``benchmarks/fork_bench.py`` measures that difference.
 from __future__ import annotations
 
 import copy
-import json
 from dataclasses import dataclass
 
-from .prompt import POLICY, compile_choices
-from .token_codes import continuation_choices
+from .prompt import prepare_prompt
 from .types import DecisionRequest
-
-_OUTPUT = "Reply with only the option code, with no whitespace, explanation or punctuation."
 
 
 @dataclass(frozen=True)
@@ -39,67 +35,29 @@ class ForkedPrompts:
     choices: tuple[tuple, ...]  # per branch: CompiledChoice tuple
 
 
-def _json(value):
-    return json.dumps(
-        value, ensure_ascii=False, sort_keys=True, separators=(",", ":"), allow_nan=False
-    )
-
-
-def _content(request: DecisionRequest, choices) -> tuple[str, str]:
-    """State-first layout: the shared state precedes everything question-specific."""
-    options = [{"code": c.code, "id": c.id, "meaning": c.description} for c in choices]
-    if request.kind == "boolean":
-        values = {c.id: c.value for c in request.candidates}
-        for option in options:
-            if option["id"] in values:
-                option["value"] = values[option["id"]]
-    shared = "CURRENT_STATE (visible arrays are in displayed order):\n" + _json(request.state)
-    content = (
-        shared
-        + "\nQUESTION:\n"
-        + _json({"kind": request.kind, "question": request.question})
-        + "\nCHOICES (codes are labels, not visible positions):\n"
-        + _json(options)
-        + "\nUSER_UTTERANCE:\n"
-        + _json(request.utterance)
-    )
-    return shared, content
-
-
 def prepare_forked(tokenizer, requests: list[DecisionRequest]) -> ForkedPrompts:
-    """Tokenize each question as a full standalone prompt, then split off the trunk."""
+    """Tokenize each question as a full standalone state-first prompt, then split the trunk.
+
+    The trunk is the longest token prefix all prompts share (always leaving at least
+    one branch token), so trunk + branch is exactly each standalone prompt.
+    """
     if not requests:
         raise ValueError("at least one question is required")
     state = requests[0].state
     if any(r.state != state for r in requests):
         raise ValueError("all forked questions must share the same state")
-    full, choices, shared_prefixes = [], [], []
-    for request in requests:
-        compiled = compile_choices(tokenizer, request)
-        shared, content = _content(request, compiled)
-        text = tokenizer.apply_chat_template(
-            [{"role": "system", "content": POLICY + "\n" + _OUTPUT},
-             {"role": "user", "content": content}],
-            tokenize=False,
-            add_generation_prompt=True,
-            enable_thinking=False,
-        )
-        if not isinstance(text, str) or text.count(content) != 1:
-            raise ValueError("Unsupported chat template")
-        tokens = tuple(tokenizer.encode(text, add_special_tokens=False))
-        choices.append(continuation_choices(tokenizer, text, tokens, compiled))
-        boundary = text.index(content) + len(shared)
-        shared_prefixes.append(len(tokenizer.encode(text[:boundary], add_special_tokens=False)))
-        full.append(tokens)
-    # Trunk: longest common token prefix, never past the shared-state boundary
-    # (a BPE merge may cross it) and always leaving at least one branch token.
-    trunk_len = min(min(shared_prefixes), min(len(t) for t in full) - 1)
+    prompts = [prepare_prompt(tokenizer, r, layout="state_first") for r in requests]
+    full = [p.tokens for p in prompts]
+    trunk_len = min(len(t) for t in full) - 1
     for i in range(trunk_len):
         if any(t[i] != full[0][i] for t in full):
             trunk_len = i
             break
-    trunk = full[0][:trunk_len]
-    return ForkedPrompts(trunk, tuple(t[trunk_len:] for t in full), tuple(choices))
+    return ForkedPrompts(
+        full[0][:trunk_len],
+        tuple(t[trunk_len:] for t in full),
+        tuple(p.choices for p in prompts),
+    )
 
 
 def _text_parts(model):
