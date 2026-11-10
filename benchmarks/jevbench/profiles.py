@@ -57,7 +57,7 @@ def policy_context(name):
         prompt_module.POLICY = previous
 
 
-LAYOUTS = ("question_first", "state_first")
+LAYOUTS = prompt_module.LAYOUTS
 
 
 @contextmanager
