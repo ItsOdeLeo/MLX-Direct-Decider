@@ -1,0 +1,65 @@
+{
+  "identity": {
+    "name": "Qwen3.5-9B-OptiQ-4bit",
+    "model_type": "qwen3_5",
+    "config_sha256": "0362df988d40561f6b41a54635b943f3268f7db190f535373b7573bed8354925",
+    "tokenizer_sha256": "87a7830d63fcf43bf241c3c5242e96e62dd3fdc29224ca26fed8ea333db72de4",
+    "quantization": {
+      "default_bits": 4,
+      "group_size": 64,
+      "mode": "affine",
+      "layer_bits_counts": {
+        "8": 93,
+        "4": 157
+      },
+      "sha256": "d718236e19f73d69e684b2e92ddbc5cfbadbb566f1c88295316029ddbba5745d"
+    },
+    "dependencies": {
+      "mlx": "0.31.2",
+      "mlx-lm": "0.31.3",
+      "transformers": "5.9.0",
+      "tokenizers": "0.22.2"
+    },
+    "cache_types": [
+      "ArraysCache",
+      "KVCache"
+    ]
+  },
+  "args": {
+    "model": "/Users/lizeng/Projects/models/llm/Qwen3.5-9B-OptiQ-4bit",
+    "items": 40,
+    "questions": "4,16",
+    "repeats": 2,
+    "json": "/private/tmp/claude-501/-Users-lizeng-Projects-jevkit-mlx/cf20d628-79d4-46d7-8fc2-e4d7256790cd/scratchpad/fork_qwen35_9b.json"
+  },
+  "rows": [
+    {
+      "questions": 4,
+      "trunk_tokens": 1707,
+      "branch_tokens_mean": 205,
+      "tokenize_ms": 97.11566698388197,
+      "today_ms": 23593.058625003323,
+      "serial_ms": 8753.110000005108,
+      "forked_ms": 8676.649291999638,
+      "serial_warm_ms": 2962.127270991914,
+      "forked_warm_ms": 3044.8936665052315,
+      "max_abs_logit_diff": 0.5,
+      "top_choice_agree": "4/4",
+      "disagreement_margins": []
+    },
+    {
+      "questions": 16,
+      "trunk_tokens": 1707,
+      "branch_tokens_mean": 202.5,
+      "tokenize_ms": 316.8425410112832,
+      "today_ms": 92817.0087920007,
+      "serial_ms": 17699.161375014228,
+      "forked_ms": 18306.093521008734,
+      "serial_warm_ms": 11876.620457987883,
+      "forked_warm_ms": 12378.640604496468,
+      "max_abs_logit_diff": 0.375,
+      "top_choice_agree": "16/16",
+      "disagreement_margins": []
+    }
+  ]
+}
