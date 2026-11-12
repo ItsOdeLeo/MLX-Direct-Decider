@@ -21,7 +21,7 @@ Reuse a compatible [MLX-LM](https://github.com/ml-explore/mlx-lm) checkpoint for
   <img src="docs/assets/badges/apple-silicon.svg" alt="Apple Silicon" />
   <img src="docs/assets/badges/python.svg" alt="Python 3.11+" />
   <a href="LICENSE"><img src="docs/assets/badges/license.svg" alt="MIT License" /></a>
-  <a href="CHANGELOG.md"><img src="docs/assets/badges/release.svg" alt="0.1 experimental, not published" /></a>
+  <a href="CHANGELOG.md"><img src="docs/assets/badges/release.svg" alt="0.2 experimental, on PyPI" /></a>
 </p>
 
 <p align="center">
@@ -51,7 +51,7 @@ Reuse a compatible [MLX-LM](https://github.com/ml-explore/mlx-lm) checkpoint for
 
 Embed it in an existing tool: open a feature, select a visible item, pause a player, or answer a boolean / enum question. Inference runs on your Mac with an existing checkpoint; no training is required.
 
-> **Project and package:** The project is MLX Direct Decider. The distribution and CLI are `mlx-direct-decider`, with Python imports from `mlx_direct_decider`. Version 0.1 is experimental and has not been published to PyPI.
+> **Project and package:** The project is MLX Direct Decider. The distribution and CLI are `mlx-direct-decider`, with Python imports from `mlx_direct_decider`. Version 0.2 is experimental and is published on PyPI.
 
 | Capability | What it means for your application |
 | :--- | :--- |
@@ -69,16 +69,17 @@ Models can make mistakes. Candidate scores rank choices and are **not calibrated
 
 Requires **Apple Silicon, native ARM Python 3.11+**, and a local MLX-LM checkpoint. Start with the verified Qwen checkpoint in the [model table](docs/models.md).
 
-Clone the repository and install:
+Install from PyPI:
 
 ```sh
-git clone https://github.com/ItsOdeLeo/MLX-Direct-Decider.git
-cd MLX-Direct-Decider
 python3 -m venv .venv
 source .venv/bin/activate
-python -m pip install -e '.[mlx]'
+python -m pip install 'mlx-direct-decider[mlx]'
 export MLX_DIRECT_MODEL=/absolute/path/to/your/local/mlx-model
 ```
+
+To work from source instead, clone the repository and run
+`python -m pip install -e '.[mlx]'` in the checkout.
 
 ```python
 import os
@@ -261,7 +262,7 @@ Application state + utterance + allowed choices
 
 Choices map to tokenizer-verified single-token codes, then back to business IDs. Direct scoring reads a causal model's next-token logits without generating a JSON continuation. It retains the official quantized output head. Hybrid caches reuse only complete, valid prefix boundaries.
 
-See the [architecture](docs/architecture.md) and [framework audit](docs/framework-audit.md). Version 0.1 focuses on **English, single-turn, single-step choices**. Experimental text + image decisions use the separate [MLX-VLM API](docs/multimodal.md). General chat, multi-step planning, arbitrary arguments, training, and GPU batching are outside its scope. **Chinese documentation does not mean Chinese model behavior has been validated.**
+See the [architecture](docs/architecture.md) and [framework audit](docs/framework-audit.md). Version 0.2 focuses on **English, single-turn, single-step choices**. Experimental text + image decisions use the separate [MLX-VLM API](docs/multimodal.md). General chat, multi-step planning, arbitrary arguments, training, and GPU batching are outside its scope. **Chinese documentation does not mean Chinese model behavior has been validated.**
 
 <a name="related-projects"></a>
 
@@ -318,7 +319,7 @@ No. Reuse a compatible local MLX-LM checkpoint, or an MLX-VLM checkpoint for exp
 
 ### How do I install MLX Direct Decider?
 
-Clone [ItsOdeLeo/MLX-Direct-Decider](https://github.com/ItsOdeLeo/MLX-Direct-Decider), create a native ARM Python 3.11+ environment, and run `python -m pip install -e '.[mlx]'` from the checkout. Set `MLX_DIRECT_MODEL` to your local checkpoint directory. Follow the [quick start](#quick-start) for a runnable example. Version 0.1 is experimental and has not been published to PyPI.
+Create a native ARM Python 3.11+ environment and run `python -m pip install 'mlx-direct-decider[mlx]'`. Add `vlm` to the extras for image decisions. Set `MLX_DIRECT_MODEL` to your local checkpoint directory. Follow the [quick start](#quick-start) for a runnable example. Version 0.2 is experimental. To work from source, clone [ItsOdeLeo/MLX-Direct-Decider](https://github.com/ItsOdeLeo/MLX-Direct-Decider) and run `python -m pip install -e '.[mlx]'`.
 
 ### How fast is local MLX action selection?
 
@@ -326,7 +327,7 @@ Latency depends on the checkpoint, hardware, input, and reusable prefix. The [me
 
 ### Is MLX Direct Decider an official JEV implementation or a general chat assistant?
 
-MLX Direct Decider is an independent JEV-inspired project at [ItsOdeLeo/MLX-Direct-Decider](https://github.com/ItsOdeLeo/MLX-Direct-Decider). It uses existing MLX-LM models, not JEV weights, and does not reproduce unpublished JEV training. Version 0.1 supports English, single-turn, single-step choices; general chat and multi-step planning are outside its scope. Experimental text/image choices are documented in the [multimodal guide](docs/multimodal.md).
+MLX Direct Decider is an independent JEV-inspired project at [ItsOdeLeo/MLX-Direct-Decider](https://github.com/ItsOdeLeo/MLX-Direct-Decider). It uses existing MLX-LM models, not JEV weights, and does not reproduce unpublished JEV training. Version 0.2 supports English, single-turn, single-step choices; general chat and multi-step planning are outside its scope. Experimental text/image choices are documented in the [multimodal guide](docs/multimodal.md).
 
 ## Documentation
 

@@ -19,7 +19,7 @@ from .types import (
 )
 from .vlm import MLXVLMDecisionEngine
 
-__version__ = "0.1.0"
+__version__ = "0.2.0"
 
 __all__ = [
     "ABSTAIN_ID",

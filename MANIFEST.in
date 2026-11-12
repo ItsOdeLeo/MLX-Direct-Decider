@@ -2,7 +2,7 @@ include LICENSE NOTICE.md CHANGELOG.md CONTRIBUTING.md
 include *.zh-CN.md
 include docs/locales.json
 recursive-include docs *.md
-recursive-include docs/assets *.svg *.png *.jpg *.webm *.mp4 *.gif *.json
+recursive-include docs/assets *.svg *.png *.jpg *.json
 recursive-include docs/demo *.html *.js *.css *.py
 recursive-include benchmarks *.py *.md *.json *.jsonl *.xml
 recursive-include examples *.py *.json *.md *.png
@@ -11,3 +11,4 @@ recursive-include tests *.py *.mjs
 include requirements-macos-py313.lock
 prune benchmarks/__pycache__
 global-exclude *.pyc .DS_Store
+# Demo recordings stay in the repository; they are not needed to build or test.

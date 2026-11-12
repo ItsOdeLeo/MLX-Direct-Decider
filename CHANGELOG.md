@@ -2,7 +2,9 @@
 
 [Back to home](README.md)
 
-## Unreleased
+## 0.2.0 — 2026-11-12
+
+First release published to PyPI and GitHub Releases.
 
 - Optional `prompt_layout="state_first"` for `MLXLMBackend`, `from_loaded_model` and
   `MLXDecisionEngine`. The state comes before the question and a system+state snapshot

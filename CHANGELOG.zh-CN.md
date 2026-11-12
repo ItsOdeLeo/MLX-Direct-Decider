@@ -2,7 +2,9 @@
 
 [返回项目首页](README.zh-CN.md)
 
-## 尚未打包发布的更新
+## 0.2.0 — 2026-11-12
+
+首个发布到 PyPI 和 GitHub Releases 的版本。
 
 - `MLXLMBackend`、`from_loaded_model` 和 `MLXDecisionEngine` 新增可选参数
   `prompt_layout="state_first"`：状态放在问题前面，共享「系统提示 + 状态」快照，
