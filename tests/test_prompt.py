@@ -116,3 +116,47 @@ def test_json_code_control_preserves_semantic_user_content_and_candidate_mapping
     assert '{"choice":"<option code>"}' in texts["json_code"]
     assert '{"candidate_id":"<id>"}' in texts["json"]
     assert "Reply with only the option code," in texts["code"]
+
+
+def boolean(question, state=None):
+    return DecisionRequest.boolean(
+        state=state or {"player": "paused", "volume": 3},
+        utterance="Is it paused?",
+        question=question,
+    )
+
+
+def test_default_layout_is_question_first_and_unchanged():
+    tokenizer = CharacterTokenizer()
+    value = boolean("Is the player paused?")
+    default = prepare_prompt(tokenizer, value)
+    explicit = prepare_prompt(tokenizer, value, layout="question_first")
+    assert default == explicit
+    text = tokenizer.decode(default.tokens)
+    assert text.index("QUESTION:") < text.index("CURRENT_STATE")
+    # question_first has no shared state boundary beyond the system prompt.
+    assert default.shared_tokens == default.system_tokens
+
+
+def test_state_first_shares_system_and_state_across_questions():
+    tokenizer = CharacterTokenizer()
+    a = prepare_prompt(tokenizer, boolean("Is the player paused?"), layout="state_first")
+    b = prepare_prompt(tokenizer, boolean("Is the volume above 5?"), layout="state_first")
+    assert a.shared_tokens == b.shared_tokens
+    assert len(a.system_tokens) < len(a.shared_tokens) < len(a.state_tokens)
+    assert a.tokens[: len(a.shared_tokens)] == a.shared_tokens
+    shared_text = tokenizer.decode(a.shared_tokens)
+    assert "CURRENT_STATE" in shared_text and "QUESTION" not in shared_text
+    assert a.state_tokens != b.state_tokens
+    # Same text, reordered: the state block precedes the question block.
+    text = tokenizer.decode(a.tokens)
+    assert text.index("CURRENT_STATE") < text.index("QUESTION:") < text.index("CHOICES")
+    other_state = prepare_prompt(
+        tokenizer, boolean("Is the player paused?", {"player": "playing"}), layout="state_first"
+    )
+    assert other_state.shared_tokens != a.shared_tokens
+
+
+def test_unknown_layout_is_rejected():
+    with pytest.raises(ValueError, match="layout"):
+        prepare_prompt(CharacterTokenizer(), request(), layout="state_last")

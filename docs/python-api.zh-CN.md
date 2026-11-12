@@ -85,3 +85,17 @@ engine = MLXDecisionEngine(backend=backend)
 backend.prewarm(request, cache_key="desktop")
 result = engine.decide(request, cache_key="desktop")
 ```
+
+## 对同一状态连续提多个问题
+
+默认提示把问题放在状态前面（`question_first`），公开的 JevBench 结果就是用这个布局测的。如果应用要对同一个很大的状态连续提多个不同的问题，可以传入 `prompt_layout="state_first"`。这样状态放在问题前面，后端会在「系统提示 + 状态」之后存一个快照；之后针对这个状态的每个问题，只需预填充它自己的问题、选项和用户话语。
+
+```python
+engine = MLXDecisionEngine(os.environ["MLX_DIRECT_MODEL"], prompt_layout="state_first")
+for question in questions:  # 同一个状态，同一个 cache_key
+    result = engine.decide(question, cache_key="library")
+```
+
+`MLXLMBackend.from_loaded_model(..., prompt_layout="state_first")` 也接受这个参数。如果只复用了状态部分，`result.cache["scope"]` 为 `"shared_state"`。
+
+布局会改变提示，因此可能改变答案。在 Qwen3.5-9B-OptiQ-4bit 上，JevBench 公开任务用 `state_first` 答对 168/231，用默认布局答对 171/231。这一配对差异在统计上测不出来（p = 0.61），但掉几个点的可能也不能排除。在 1,707 个 token 的共享状态上问 16 个问题，耗时从 92.8 秒降到 18.3 秒，16 个首选答案完全一致。详见[测量记录](../benchmarks/results/multi-question-fork-2026-11-12/README.md)。切换前请先在自己的数据上评估。每个后端只用一种布局：不同布局的快照互相不会命中。

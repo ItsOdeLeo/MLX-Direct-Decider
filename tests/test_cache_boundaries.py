@@ -72,6 +72,7 @@ class NearestSnapshotDouble:
 def backend(monkeypatch, *, max_size=8, max_bytes=100):
     instance = MLXLMBackend.__new__(MLXLMBackend)
     instance.max_prompt_tokens = 4096
+    instance.prompt_layout = "question_first"
     instance.model = instance.tokenizer = None
     instance._cache = NearestSnapshotDouble(max_size=max_size, max_bytes=max_bytes)
     instance._make_cache = lambda model: [SimpleNamespace(tokens=[])]
@@ -83,14 +84,18 @@ def backend(monkeypatch, *, max_size=8, max_bytes=100):
             cache[0].tokens.extend(tokens)
 
     instance._prefill = prefill
-    monkeypatch.setattr(backend_module, "prepare_prompt", lambda tokenizer, request, mode: request)
+    monkeypatch.setattr(backend_module, "prepare_prompt", lambda tokenizer, request, **_: request)
     return instance
 
 
-def prompt(page=(3, 4, 5), system=(1, 2)):
-    stable = (*system, *page)
+def prompt(page=(3, 4, 5), system=(1, 2), shared=()):
+    stable = (*system, *shared, *page)
     return PreparedPrompt(
-        tokens=(*stable, 9), system_tokens=system, state_tokens=stable, choices=()
+        tokens=(*stable, 9),
+        system_tokens=system,
+        state_tokens=stable,
+        choices=(),
+        shared_tokens=(*system, *shared) if shared else system,
     )
 
 
@@ -178,3 +183,32 @@ def test_namespaces_share_one_bounded_store_and_cold_calls_bypass_it(monkeypatch
     assert info["scope"] == "cold"
     assert not original_store.fetches
     assert list(original_store.entries) == list(before)
+
+
+def test_state_first_question_reuses_shared_state_snapshot(monkeypatch):
+    instance = backend(monkeypatch, max_bytes=1000)
+    first = prompt(shared=(20, 21, 22), page=(30, 31))
+    instance._prepare(first, "code", "session", True)
+    assert instance.prefill_calls == [(1, 2), (20, 21, 22), (30, 31)]
+    instance.prefill_calls.clear()
+    second = prompt(shared=(20, 21, 22), page=(40, 41))  # new question, same state
+    _, cache, suffix, info = instance._prepare(second, "code", "session", True)
+    assert info["scope"] == "shared_state"
+    assert info["reused_tokens"] == len(second.shared_tokens) == 5
+    assert instance.prefill_calls == [(40, 41)]
+    assert cache[0].tokens == list(second.state_tokens)
+    assert suffix == [9]
+    # A changed state falls back to the system snapshot, not a trimmed state.
+    instance.prefill_calls.clear()
+    changed = prompt(shared=(20, 99, 22), page=(40, 41))
+    _, _, _, info = instance._prepare(changed, "code", "session", True)
+    assert info["scope"] == "prefix"
+    assert instance.prefill_calls == [(20, 99, 22), (40, 41)]
+
+
+def test_state_first_uncached_uses_the_same_prefill_segments(monkeypatch):
+    instance = backend(monkeypatch)
+    value = prompt(shared=(20, 21, 22), page=(30, 31))
+    _, _, _, info = instance._prepare(value, "code", "session", False)
+    assert info["scope"] == "cold"
+    assert instance.prefill_calls == [(1, 2), (20, 21, 22), (30, 31)]

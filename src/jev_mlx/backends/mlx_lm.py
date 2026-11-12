@@ -9,7 +9,7 @@ from collections import Counter
 from importlib.metadata import version
 from pathlib import Path
 
-from ..prompt import prepare_prompt
+from ..prompt import LAYOUTS, prepare_prompt
 from ..types import ABSTAIN_ID as ABSTAIN
 from ..types import NO_MATCH_ID as NO_MATCH
 from ..types import BackendOutput, DecisionRequest
@@ -30,11 +30,14 @@ class MLXLMBackend:
         max_prompt_tokens: int = 4096,
         cache_bytes: int = 512 * 1024**2,
         cache_entries: int = 16,
+        prompt_layout: str = "question_first",
     ):
         if not isinstance(prefill_step_size, int) or prefill_step_size < 1:
             raise ValueError("prefill_step_size must be positive")
         if max_prompt_tokens < 64 or cache_bytes < 1 or cache_entries < 2:
             raise ValueError("Invalid prompt/cache limits")
+        if prompt_layout not in LAYOUTS:
+            raise ValueError(f"prompt_layout must be one of {LAYOUTS}")
         path = Path(model).expanduser().resolve()
         if not path.is_dir() or not (path / "config.json").is_file():
             raise ValueError("model must be an existing local MLX model directory")
@@ -57,6 +60,7 @@ class MLXLMBackend:
         self.load_ms = (time.perf_counter() - started) * 1000
         self.prefill_step_size = prefill_step_size
         self.max_prompt_tokens = max_prompt_tokens
+        self.prompt_layout = prompt_layout
         self._lock = threading.RLock()
         self._should_cancel = None
         self._make_cache = make_prompt_cache
@@ -100,6 +104,7 @@ class MLXLMBackend:
         cache_bytes: int = 512 * 1024**2,
         cache_entries: int = 16,
         should_cancel=None,
+        prompt_layout: str = "question_first",
     ):
         """Share an already-loaded text model without loading or copying its weights.
 
@@ -126,6 +131,8 @@ class MLXLMBackend:
             raise ValueError("Invalid prompt/cache limits")
         if should_cancel is not None and not callable(should_cancel):
             raise ValueError("should_cancel must be callable")
+        if prompt_layout not in LAYOUTS:
+            raise ValueError(f"prompt_layout must be one of {LAYOUTS}")
         import mlx.core as mx
         from mlx_lm.models.cache import LRUPromptCache, make_prompt_cache
 
@@ -135,6 +142,7 @@ class MLXLMBackend:
         backend.load_ms = 0.0
         backend.prefill_step_size = prefill_step_size
         backend.max_prompt_tokens = max_prompt_tokens
+        backend.prompt_layout = prompt_layout
         backend._lock = threading.RLock()
         backend._should_cancel = should_cancel
         backend._make_cache = make_prompt_cache
@@ -161,60 +169,58 @@ class MLXLMBackend:
             self._check_cancelled()
 
     def _prepare(self, request, mode, cache_key, use_cache):
-        prompt = prepare_prompt(self.tokenizer, request, mode=mode)
+        prompt = prepare_prompt(self.tokenizer, request, mode=mode, layout=self.prompt_layout)
         if len(prompt.tokens) > self.max_prompt_tokens:
             raise ValueError(f"Prompt exceeds {self.max_prompt_tokens} tokens")
         namespace = (cache_key or "default", mode)
-        system_namespace = (*namespace, "system")
-        page_namespace = (*namespace, "page")
+        # Snapshot boundaries, shortest first. question_first saves the system
+        # prompt and the full stable page. state_first also saves system + state,
+        # which every question about that state shares.
+        boundaries = [("system", prompt.system_tokens)]
+        if len(prompt.system_tokens) < len(prompt.shared_tokens) < len(prompt.state_tokens):
+            boundaries.append(("shared", prompt.shared_tokens))
+        boundaries.append(("page", prompt.state_tokens))
         cache, reused = None, 0
         if use_cache:
-            page_cache, suffix = self._cache.fetch_nearest_cache(
-                page_namespace, list(prompt.state_tokens)
-            )
-            if page_cache is not None and not suffix:
-                cache, reused = page_cache, len(prompt.state_tokens)
-            else:
-                page_cache = None
-                # Official nearest lookup may trim attention caches at an
-                # arbitrary common prefix. Reuse only complete saved boundaries
-                # so changed pages use the same prefill segments as fresh calls.
-                system_cache, suffix = self._cache.fetch_nearest_cache(
-                    system_namespace, list(prompt.system_tokens)
-                )
-                if system_cache is not None and not suffix:
-                    cache, reused = system_cache, len(prompt.system_tokens)
+            # Official nearest lookup may trim attention caches at an arbitrary
+            # common prefix. Reuse only complete saved boundaries so changed pages
+            # use the same prefill segments as fresh calls.
+            for name, tokens in reversed(boundaries):
+                found, suffix = self._cache.fetch_nearest_cache((*namespace, name), list(tokens))
+                if found is not None and not suffix:
+                    cache, reused = found, len(tokens)
+                    break
         if cache is None:
             cache = self._make_cache(self.model)
-        # Separate namespaces also prevent the official LRU from removing the
-        # shorter system snapshot when inserting a trimmable page snapshot.
-        # Both namespaces share the same entry and byte limits.
-        if reused < len(prompt.system_tokens):
-            self._prefill(prompt.tokens[reused : len(prompt.system_tokens)], cache)
+        # Separate namespaces also prevent the official LRU from removing a
+        # shorter snapshot when inserting a longer trimmable one. All namespaces
+        # share the same entry and byte limits.
+        cursor = reused
+        for name, tokens in boundaries:
+            if len(tokens) <= reused:
+                continue
+            self._prefill(prompt.tokens[cursor : len(tokens)], cache)
+            cursor = len(tokens)
             if use_cache:
                 self._cache.insert_cache(
-                    system_namespace,
-                    list(prompt.system_tokens),
+                    (*namespace, name),
+                    list(tokens),
                     copy.deepcopy(cache),
-                    cache_type="system",
+                    cache_type="system" if name == "system" else "user",
                 )
-            cursor = len(prompt.system_tokens)
-        else:
-            cursor = reused
-        self._prefill(prompt.tokens[cursor : len(prompt.state_tokens)], cache)
-        if use_cache and reused < len(prompt.state_tokens):
-            self._cache.insert_cache(
-                page_namespace, list(prompt.state_tokens), copy.deepcopy(cache), cache_type="user"
-            )
+        scope = "cold"
+        for name, tokens in boundaries:
+            if reused == len(tokens):
+                scope = {"system": "prefix", "shared": "shared_state", "page": "state"}[name]
         info = {
             "hit": reused > 0,
-            "scope": "state"
-            if reused == len(prompt.state_tokens)
-            else ("prefix" if reused else "cold"),
+            "scope": scope,
+            "layout": self.prompt_layout,
             "prompt_tokens": len(prompt.tokens),
             "reused_tokens": reused,
             "prefill_tokens": len(prompt.tokens) - reused,
             "system_tokens": len(prompt.system_tokens),
+            "shared_tokens": len(prompt.shared_tokens),
             "state_tokens": len(prompt.state_tokens),
             "bytes": self._cache.nbytes,
             "entries": len(self._cache),

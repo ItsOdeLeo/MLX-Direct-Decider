@@ -109,3 +109,30 @@ engine = MLXDecisionEngine(backend=backend)
 backend.prewarm(request, cache_key="desktop")
 result = engine.decide(request, cache_key="desktop")
 ```
+
+## Ask several questions about one state
+
+By default the prompt places the question before the state (`question_first`).
+This is the layout behind the published JevBench results. When an application asks
+several different questions about the same large state, pass
+`prompt_layout="state_first"`. The state then precedes the question, the backend
+saves a snapshot after the system prompt and state, and every later question about
+that state prefills only its own question, choices and utterance.
+
+```python
+engine = MLXDecisionEngine(os.environ["MLX_DIRECT_MODEL"], prompt_layout="state_first")
+for question in questions:  # same state, same cache_key
+    result = engine.decide(question, cache_key="library")
+```
+
+`MLXLMBackend.from_loaded_model(..., prompt_layout="state_first")` accepts the same
+option. `result.cache["scope"]` is `"shared_state"` when only the state was reused.
+
+The layout changes the prompt, so it can change answers. On Qwen3.5-9B-OptiQ-4bit,
+JevBench public tasks scored 168/231 with `state_first` and 171/231 with the default.
+That paired difference is not statistically detectable (p = 0.61). A drop of a few
+points is not ruled out. With a 1,707-token shared state, 16 questions took 18.3 s
+instead of 92.8 s, and all 16 top choices were identical. See the
+[measurements](../benchmarks/results/multi-question-fork-2026-11-12/README.md).
+Evaluate the layout on your own data before switching. Use one layout per backend:
+snapshots from different layouts never match each other.
