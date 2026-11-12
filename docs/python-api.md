@@ -131,8 +131,8 @@ option. `result.cache["scope"]` is `"shared_state"` when only the state was reus
 The layout changes the prompt, so it can change answers. On Qwen3.5-9B-OptiQ-4bit,
 JevBench public tasks scored 168/231 with `state_first` and 171/231 with the default.
 That paired difference is not statistically detectable (p = 0.61). A drop of a few
-points is not ruled out. With a 1,707-token shared state, 16 questions took 18.3 s
-instead of 92.8 s, and all 16 top choices were identical. See the
+points is not ruled out. With a 1,701-token shared state, 16 questions took 20.9 s
+instead of 93.0 s (4.5x), and 15 of 16 top choices matched the default layout. See the
 [measurements](../benchmarks/results/multi-question-fork-2026-11-12/README.md).
 Evaluate the layout on your own data before switching. Use one layout per backend:
 snapshots from different layouts never match each other.

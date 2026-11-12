@@ -98,4 +98,4 @@ for question in questions:  # 同一个状态，同一个 cache_key
 
 `MLXLMBackend.from_loaded_model(..., prompt_layout="state_first")` 也接受这个参数。如果只复用了状态部分，`result.cache["scope"]` 为 `"shared_state"`。
 
-布局会改变提示，因此可能改变答案。在 Qwen3.5-9B-OptiQ-4bit 上，JevBench 公开任务用 `state_first` 答对 168/231，用默认布局答对 171/231。这一配对差异在统计上测不出来（p = 0.61），但掉几个点的可能也不能排除。在 1,707 个 token 的共享状态上问 16 个问题，耗时从 92.8 秒降到 18.3 秒，16 个首选答案完全一致。详见[测量记录](../benchmarks/results/multi-question-fork-2026-11-12/README.md)。切换前请先在自己的数据上评估。每个后端只用一种布局：不同布局的快照互相不会命中。
+布局会改变提示，因此可能改变答案。在 Qwen3.5-9B-OptiQ-4bit 上，JevBench 公开任务用 `state_first` 答对 168/231，用默认布局答对 171/231。这一配对差异在统计上测不出来（p = 0.61），但掉几个点的可能也不能排除。在 1,701 个 token 的共享状态上问 16 个问题，耗时从 93.0 秒降到 20.9 秒（快 4.5 倍），16 个首选答案中有 15 个与默认布局相同。详见[测量记录](../benchmarks/results/multi-question-fork-2026-11-12/README.md)。切换前请先在自己的数据上评估。每个后端只用一种布局：不同布局的快照互相不会命中。

@@ -1,0 +1,76 @@
+[gpu] acquired for L2 MLX Direct Decider (开源贡献)
+23:27  up 2 days,  1:32, 1 user, load averages: 3.69 4.36 4.11
+== real-model invariants (0.8B)
+[guard] memory limit 40 GB, swap baseline 5719 MB
+...                                                                      [100%]
+3 passed in 6.12s
+== state_first check (0.8B)
+[guard] memory limit 40 GB, swap baseline 5719 MB
+{
+  "model": "2fc06364715b967f1860aea9cf38778875588b17",
+  "questions": 16,
+  "state_tokens_shared": 1701,
+  "scopes": [
+    "cold",
+    "shared_state",
+    "shared_state",
+    "shared_state",
+    "shared_state",
+    "shared_state",
+    "shared_state",
+    "shared_state",
+    "shared_state",
+    "shared_state",
+    "shared_state",
+    "shared_state",
+    "shared_state",
+    "shared_state",
+    "shared_state",
+    "shared_state"
+  ],
+  "median_ms": {
+    "default": 7200.273458496667,
+    "state_first": 2177.527749998262,
+    "reference": 8416.768229493755
+  },
+  "speedup_vs_default": 3.306627646192988,
+  "cached_equals_uncached": true,
+  "top_choice_same_as_default": 16,
+  "status_same_as_default": 16
+}
+== state_first check (9B)
+[guard] memory limit 40 GB, swap baseline 5719 MB
+{
+  "model": "Qwen3.5-9B-OptiQ-4bit",
+  "questions": 16,
+  "state_tokens_shared": 1701,
+  "scopes": [
+    "cold",
+    "shared_state",
+    "shared_state",
+    "shared_state",
+    "shared_state",
+    "shared_state",
+    "shared_state",
+    "shared_state",
+    "shared_state",
+    "shared_state",
+    "shared_state",
+    "shared_state",
+    "shared_state",
+    "shared_state",
+    "shared_state",
+    "shared_state"
+  ],
+  "median_ms": {
+    "default": 93044.77435399895,
+    "state_first": 20850.99918799824,
+    "reference": 110125.27277099434
+  },
+  "speedup_vs_default": 4.462365257179386,
+  "cached_equals_uncached": true,
+  "top_choice_same_as_default": 15,
+  "status_same_as_default": 15
+}
+23:37  up 2 days,  1:42, 1 user, load averages: 2.86 3.26 3.53
+exit=0

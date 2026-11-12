@@ -1,6 +1,6 @@
 # Multi-question state sharing on Qwen3.5-9B-OptiQ-4bit (2026-11-12)
 
-Experimental branch result. Nothing here changes the default library or published numbers.
+Measurements behind the opt-in `prompt_layout="state_first"` option. The default layout and the published numbers are unchanged.
 
 Machine: M2 Max, 64 GB. Software: mlx 0.31.2, mlx-lm 0.31.3. Every run went through the
 shared GPU queue with a 40 GB MLX memory limit, and swap did not grow during any run.
@@ -34,9 +34,27 @@ branches of about 200 tokens each, cold prefix cache, and median of 2 repeats.
 - Max absolute logit difference between forked and serial scoring is 0.375 to 0.5, from
   bf16 batched-vs-single kernels.
 - Almost all of the gain comes from computing the state once. Batching the question
-  branches adds nothing measurable on this machine. Serial reuse of a `state_first`
-  prefix through the existing prefix cache should therefore give the same speedup.
-  That last point is inferred and has not been run yet.
+  branches adds nothing measurable on this machine, so the shipped option reuses a
+  saved state snapshot serially and does not batch.
+
+## The shipped option: `prompt_layout="state_first"` (commit `e55c5b8`)
+
+Benchmark: `benchmarks/state_first_check.py` with the same state and 16 questions. Each
+question goes through `engine.decide` with tokenization and code checks included, and the
+time is the median of 2 repeats.
+
+| Model | Default layout | `state_first`, cache on | Speedup | Same top choice as default | Cached = uncached scores |
+|---|---|---|---|---|---|
+| Qwen3.5-0.8B | 7.20 s | 2.18 s | 3.3× | 16/16 | identical |
+| Qwen3.5-9B-OptiQ-4bit | 93.0 s | 20.9 s | 4.5× | 15/16 | identical |
+
+- Questions 2–16 all reported cache scope `shared_state`.
+- In a first run at `c5ebd25` the 512 MiB LRU evicted the shared snapshot, and the 9B
+  speedup fell to 2.7×. `e55c5b8` keeps the shared state in the system eviction class.
+  `tests/test_cache_boundaries.py` reproduces the bug against the official LRU.
+- The real-model invariants in `tests/test_model.py` pass on Qwen3.5-0.8B
+  (`state-first-check-e55c5b8.log`).
+
 - JevBench gives every task its own state, so it measures layout accuracy only, not the
   multi-question scenario.
 
