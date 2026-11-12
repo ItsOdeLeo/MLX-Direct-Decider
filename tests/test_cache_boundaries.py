@@ -4,6 +4,8 @@ import copy
 from collections import OrderedDict
 from types import SimpleNamespace
 
+import pytest
+
 from jev_mlx.backends import mlx_lm as backend_module
 from jev_mlx.backends.mlx_lm import MLXLMBackend
 from jev_mlx.prompt import PreparedPrompt
@@ -212,3 +214,35 @@ def test_state_first_uncached_uses_the_same_prefill_segments(monkeypatch):
     _, _, _, info = instance._prepare(value, "code", "session", False)
     assert info["scope"] == "cold"
     assert instance.prefill_calls == [(1, 2), (20, 21, 22), (30, 31)]
+
+
+class SizedSnapshot:
+    """Minimal cache layer for the official LRU: byte size plus prefilled tokens."""
+
+    def __init__(self):
+        self.tokens = []
+
+    @property
+    def nbytes(self):
+        return 10 * len(self.tokens)
+
+    def is_trimmable(self):
+        return False
+
+
+def test_official_lru_keeps_shared_state_while_questions_churn(monkeypatch):
+    cache_module = pytest.importorskip("mlx_lm.models.cache")
+    instance = backend(monkeypatch)
+    # Room for the system, shared-state and about two question snapshots only.
+    instance._cache = cache_module.LRUPromptCache(max_size=16, max_bytes=10 * 40)
+    instance._make_cache = lambda model: [SizedSnapshot()]
+    shared = tuple(range(20, 30))
+    scopes = []
+    for question in range(8):
+        value = prompt(shared=shared, page=(100 + question, 200 + question))
+        instance.prefill_calls.clear()
+        _, _, _, info = instance._prepare(value, "code", "session", True)
+        scopes.append(info["scope"])
+        if question:
+            assert instance.prefill_calls == [(100 + question, 200 + question)]
+    assert scopes == ["cold"] + ["shared_state"] * 7

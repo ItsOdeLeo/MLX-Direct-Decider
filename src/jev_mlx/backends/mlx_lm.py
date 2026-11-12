@@ -206,7 +206,10 @@ class MLXLMBackend:
                     (*namespace, name),
                     list(tokens),
                     copy.deepcopy(cache),
-                    cache_type="system" if name == "system" else "user",
+                    # The official LRU evicts "user" entries before "system" ones.
+                    # Per-question pages are cheap to rebuild from the shared
+                    # state, so the shared state is kept with the system prompt.
+                    cache_type="user" if name == "page" else "system",
                 )
         scope = "cold"
         for name, tokens in boundaries:
