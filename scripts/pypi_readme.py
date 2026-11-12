@@ -24,7 +24,7 @@ HTML_ATTR = re.compile(r'\b(src|href)="([^"]+)"')
 def absolute(target: str, ref: str, raw: bool) -> str:
     if target.startswith(SKIP):
         return target
-    path = target.lstrip("./")
+    path = target.removeprefix("./")
     if raw:
         return f"https://raw.githubusercontent.com/{REPO}/{ref}/{path}"
     return f"https://github.com/{REPO}/blob/{ref}/{path}"
