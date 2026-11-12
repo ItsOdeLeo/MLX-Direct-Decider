@@ -4,6 +4,12 @@
 
 ## 尚未打包发布的更新
 
+- `MLXLMBackend`、`from_loaded_model` 和 `MLXDecisionEngine` 新增可选参数
+  `prompt_layout="state_first"`：状态放在问题前面，共享「系统提示 + 状态」快照，
+  对同一状态提多个问题时状态只预填充一次。结果的 `cache` 信息新增 `layout`、
+  `shared_tokens` 两个字段和 `shared_state` 作用域。默认的 `question_first` 提示与缓存
+  行为不变。见 [Python API](docs/python-api.zh-CN.md#对同一状态连续提多个问题)。
+
 - 项目及仓库更名为 MLX Direct Decider。发行包与 CLI 为 `mlx-direct-decider`，
   导入名为 `mlx_direct_decider`；保留 `mlx_zeroeffort_decider` / `mlx-zeroeffort-decider`
   及 `jev_mlx` / `jev-mlx` 兼容入口。

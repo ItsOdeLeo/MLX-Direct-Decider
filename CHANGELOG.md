@@ -4,6 +4,13 @@
 
 ## Unreleased
 
+- Optional `prompt_layout="state_first"` for `MLXLMBackend`, `from_loaded_model` and
+  `MLXDecisionEngine`. The state comes before the question and a system+state snapshot
+  is shared, so several questions about one state prefill it once. Result `cache`
+  info gains `layout` and `shared_tokens`, and the scope `shared_state`. The default
+  `question_first` prompt and cache behavior are unchanged. See
+  [Python API](docs/python-api.md#ask-several-questions-about-one-state).
+
 - Renamed the project and repository to MLX Direct Decider. The distribution
   and CLI are `mlx-direct-decider`, with imports from `mlx_direct_decider`.
   Previous `mlx_zeroeffort_decider` / `mlx-zeroeffort-decider` and

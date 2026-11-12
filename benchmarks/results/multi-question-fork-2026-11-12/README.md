@@ -19,11 +19,14 @@ shared GPU queue with a 40 GB MLX memory limit, and swap did not grow during any
   a few points is therefore not ruled out.
 - Brier and macro accuracy are slightly worse with `state_first`.
 
-On Qwen3.5-0.8B (2026-11-10) the counts were 80 vs 75: 8 lost and 3 gained, p ≈ 0.23.
+On Qwen3.5-0.8B (2026-11-10) the counts were 80 vs 75: 8 lost and 3 gained, p ≈ 0.23
+(`jevbench-0.8b-*`).
 
 ## Speed: one shared state, N questions
 
-Benchmark: `benchmarks/fork_bench.py` with 40 courses (a 1,707-token shared trunk),
+Benchmark: `benchmarks/fork_bench.py` from the unmerged prototype branch
+`feat/multi-question-fork` (commit `28d2f1f`, not part of this change; this table is
+reference only) with 40 courses (a 1,707-token shared trunk),
 branches of about 200 tokens each, cold prefix cache, and median of 2 repeats.
 
 | Questions | Today (`question_first`, one call each) | State shared, serial | State shared, batched fork | Speedup | Same top choice |
@@ -60,6 +63,8 @@ time is the median of 2 repeats.
 
 ## Files
 
-- `jevbench-9b-*-summary.json` and `jevbench-9b-*-results.jsonl`: per-task JevBench
-  records from the pinned harness `609a664e`.
-- `fork-bench-qwen35-9b.json`: raw speed and agreement rows.
+- `jevbench-9b-*` and `jevbench-0.8b-*` (`*-summary.json`, `*-results.jsonl`): per-task
+  JevBench records from the pinned harness `609a664e`. These were run with the prototype
+  branch's `--layout` flag.
+- `state-first-check-e55c5b8.log`: output of `benchmarks/state_first_check.py`.
+- `fork-bench-qwen35-9b.json`: raw rows of the prototype fork benchmark (reference only).

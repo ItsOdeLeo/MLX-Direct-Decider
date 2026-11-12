@@ -1,0 +1,4969 @@
+{
+  "n_planned": 231,
+  "n_attempted": 231,
+  "n_scorable": 231,
+  "n_valid": 225,
+  "n_correct": 75,
+  "accuracy": 0.3246753246753247,
+  "coverage": 1.0,
+  "schema_validity": 0.974025974025974,
+  "schema_validity_strict": 0.974025974025974,
+  "n_renormalized": 0,
+  "operational_success": 0.9956709956709957,
+  "calibration_n": 225,
+  "brier_mean": 0.874725221366013,
+  "ece": {
+    "ece": 0.3782211322358528,
+    "n": 225,
+    "bins": [
+      {
+        "lo": 0.0,
+        "hi": 0.1,
+        "n": 0,
+        "mean_confidence": null,
+        "accuracy": null
+      },
+      {
+        "lo": 0.1,
+        "hi": 0.2,
+        "n": 0,
+        "mean_confidence": null,
+        "accuracy": null
+      },
+      {
+        "lo": 0.2,
+        "hi": 0.3,
+        "n": 1,
+        "mean_confidence": 0.2632323591154791,
+        "accuracy": 0.0
+      },
+      {
+        "lo": 0.3,
+        "hi": 0.4,
+        "n": 2,
+        "mean_confidence": 0.32522014953788736,
+        "accuracy": 0.0
+      },
+      {
+        "lo": 0.4,
+        "hi": 0.5,
+        "n": 8,
+        "mean_confidence": 0.47118442914350556,
+        "accuracy": 0.0
+      },
+      {
+        "lo": 0.5,
+        "hi": 0.6,
+        "n": 44,
+        "mean_confidence": 0.5652287623965186,
+        "accuracy": 0.38636363636363635
+      },
+      {
+        "lo": 0.6,
+        "hi": 0.7,
+        "n": 46,
+        "mean_confidence": 0.6540469136205802,
+        "accuracy": 0.32608695652173914
+      },
+      {
+        "lo": 0.7,
+        "hi": 0.8,
+        "n": 61,
+        "mean_confidence": 0.7458778090695741,
+        "accuracy": 0.3114754098360656
+      },
+      {
+        "lo": 0.8,
+        "hi": 0.9,
+        "n": 45,
+        "mean_confidence": 0.8476103042697719,
+        "accuracy": 0.26666666666666666
+      },
+      {
+        "lo": 0.9,
+        "hi": 1.0,
+        "n": 18,
+        "mean_confidence": 0.9344096135750176,
+        "accuracy": 0.6666666666666666
+      }
+    ]
+  },
+  "ordinal_mae": 0.9084640723358083,
+  "latency": {
+    "n": 231,
+    "p50_s": 0.11456883400023798,
+    "p95_s": 0.7246644169999854
+  },
+  "latency_failures": {
+    "n": 1,
+    "p50_s": 0.06006462499954068,
+    "p95_s": 0.06006462499954068
+  },
+  "price_per_1000_decisions_usd": null,
+  "cost_basis": [
+    "local_apple_silicon_unmetered_compute_not_free"
+  ],
+  "version": "jevbench-v1",
+  "macro_accuracy": 0.34272288837562315,
+  "per_family": {
+    "adequacy": {
+      "n_planned": 12,
+      "n_attempted": 12,
+      "n_scorable": 12,
+      "n_valid": 12,
+      "n_correct": 6,
+      "accuracy": 0.5,
+      "coverage": 1.0,
+      "schema_validity": 1.0,
+      "schema_validity_strict": 1.0,
+      "n_renormalized": 0,
+      "operational_success": 1.0,
+      "calibration_n": 12,
+      "brier_mean": 0.5752895405806283,
+      "ece": {
+        "ece": 0.25756383190219734,
+        "n": 12,
+        "bins": [
+          {
+            "lo": 0.0,
+            "hi": 0.1,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.1,
+            "hi": 0.2,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.2,
+            "hi": 0.3,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.3,
+            "hi": 0.4,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.5,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.5,
+            "hi": 0.6,
+            "n": 1,
+            "mean_confidence": 0.5926665999540697,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.6,
+            "hi": 0.7,
+            "n": 3,
+            "mean_confidence": 0.6602722431842135,
+            "accuracy": 0.6666666666666666
+          },
+          {
+            "lo": 0.7,
+            "hi": 0.8,
+            "n": 7,
+            "mean_confidence": 0.7566415126597975,
+            "accuracy": 0.42857142857142855
+          },
+          {
+            "lo": 0.8,
+            "hi": 0.9,
+            "n": 1,
+            "mean_confidence": 0.8175744761936437,
+            "accuracy": 1.0
+          },
+          {
+            "lo": 0.9,
+            "hi": 1.0,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          }
+        ]
+      },
+      "ordinal_mae": null,
+      "latency": {
+        "n": 12,
+        "p50_s": 0.08806970849991558,
+        "p95_s": 0.08946869200021865
+      },
+      "latency_failures": {
+        "n": 0,
+        "p50_s": null,
+        "p95_s": null
+      },
+      "price_per_1000_decisions_usd": null,
+      "cost_basis": [
+        "local_apple_silicon_unmetered_compute_not_free"
+      ]
+    },
+    "adversarial": {
+      "n_planned": 6,
+      "n_attempted": 6,
+      "n_scorable": 6,
+      "n_valid": 6,
+      "n_correct": 4,
+      "accuracy": 0.6666666666666666,
+      "coverage": 1.0,
+      "schema_validity": 1.0,
+      "schema_validity_strict": 1.0,
+      "n_renormalized": 0,
+      "operational_success": 1.0,
+      "calibration_n": 6,
+      "brier_mean": 0.5261407453271869,
+      "ece": {
+        "ece": 0.2638168684767739,
+        "n": 6,
+        "bins": [
+          {
+            "lo": 0.0,
+            "hi": 0.1,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.1,
+            "hi": 0.2,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.2,
+            "hi": 0.3,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.3,
+            "hi": 0.4,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.5,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.5,
+            "hi": 0.6,
+            "n": 2,
+            "mean_confidence": 0.5785243508939035,
+            "accuracy": 0.5
+          },
+          {
+            "lo": 0.6,
+            "hi": 0.7,
+            "n": 1,
+            "mean_confidence": 0.6838289943586172,
+            "accuracy": 1.0
+          },
+          {
+            "lo": 0.7,
+            "hi": 0.8,
+            "n": 1,
+            "mean_confidence": 0.748733157994345,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.8,
+            "hi": 0.9,
+            "n": 2,
+            "mean_confidence": 0.8195258272814457,
+            "accuracy": 1.0
+          },
+          {
+            "lo": 0.9,
+            "hi": 1.0,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          }
+        ]
+      },
+      "ordinal_mae": 0.14133688804496547,
+      "latency": {
+        "n": 6,
+        "p50_s": 0.13275197949997164,
+        "p95_s": 0.14582019825024872
+      },
+      "latency_failures": {
+        "n": 0,
+        "p50_s": null,
+        "p95_s": null
+      },
+      "price_per_1000_decisions_usd": null,
+      "cost_basis": [
+        "local_apple_silicon_unmetered_compute_not_free"
+      ]
+    },
+    "ambiguous": {
+      "n_planned": 7,
+      "n_attempted": 7,
+      "n_scorable": 7,
+      "n_valid": 7,
+      "n_correct": 4,
+      "accuracy": 0.5714285714285714,
+      "coverage": 1.0,
+      "schema_validity": 1.0,
+      "schema_validity_strict": 1.0,
+      "n_renormalized": 0,
+      "operational_success": 1.0,
+      "calibration_n": 7,
+      "brier_mean": 0.5644740357751047,
+      "ece": {
+        "ece": 0.3875810749411249,
+        "n": 7,
+        "bins": [
+          {
+            "lo": 0.0,
+            "hi": 0.1,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.1,
+            "hi": 0.2,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.2,
+            "hi": 0.3,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.3,
+            "hi": 0.4,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.5,
+            "n": 1,
+            "mean_confidence": 0.46397556599344697,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.5,
+            "hi": 0.6,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.6,
+            "hi": 0.7,
+            "n": 2,
+            "mean_confidence": 0.6341599046131831,
+            "accuracy": 1.0
+          },
+          {
+            "lo": 0.7,
+            "hi": 0.8,
+            "n": 1,
+            "mean_confidence": 0.750611584184323,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.8,
+            "hi": 0.9,
+            "n": 2,
+            "mean_confidence": 0.8475791707114112,
+            "accuracy": 0.5
+          },
+          {
+            "lo": 0.9,
+            "hi": 1.0,
+            "n": 1,
+            "mean_confidence": 0.928358157786352,
+            "accuracy": 1.0
+          }
+        ]
+      },
+      "ordinal_mae": null,
+      "latency": {
+        "n": 7,
+        "p50_s": 0.19149500000003172,
+        "p95_s": 0.21576336629968862
+      },
+      "latency_failures": {
+        "n": 0,
+        "p50_s": null,
+        "p95_s": null
+      },
+      "price_per_1000_decisions_usd": null,
+      "cost_basis": [
+        "local_apple_silicon_unmetered_compute_not_free"
+      ]
+    },
+    "extraction": {
+      "n_planned": 24,
+      "n_attempted": 24,
+      "n_scorable": 24,
+      "n_valid": 24,
+      "n_correct": 10,
+      "accuracy": 0.4166666666666667,
+      "coverage": 1.0,
+      "schema_validity": 1.0,
+      "schema_validity_strict": 1.0,
+      "n_renormalized": 0,
+      "operational_success": 1.0,
+      "calibration_n": 24,
+      "brier_mean": 0.8150471634651782,
+      "ece": {
+        "ece": 0.3748644592347987,
+        "n": 24,
+        "bins": [
+          {
+            "lo": 0.0,
+            "hi": 0.1,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.1,
+            "hi": 0.2,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.2,
+            "hi": 0.3,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.3,
+            "hi": 0.4,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.5,
+            "n": 1,
+            "mean_confidence": 0.4978294296707772,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.5,
+            "hi": 0.6,
+            "n": 2,
+            "mean_confidence": 0.5864978345920875,
+            "accuracy": 0.5
+          },
+          {
+            "lo": 0.6,
+            "hi": 0.7,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.7,
+            "hi": 0.8,
+            "n": 9,
+            "mean_confidence": 0.7569684281419203,
+            "accuracy": 0.4444444444444444
+          },
+          {
+            "lo": 0.8,
+            "hi": 0.9,
+            "n": 10,
+            "mean_confidence": 0.8389429741906558,
+            "accuracy": 0.3
+          },
+          {
+            "lo": 0.9,
+            "hi": 1.0,
+            "n": 2,
+            "mean_confidence": 0.9381118362018117,
+            "accuracy": 1.0
+          }
+        ]
+      },
+      "ordinal_mae": null,
+      "latency": {
+        "n": 24,
+        "p50_s": 0.09067647949996172,
+        "p95_s": 0.09278125804999036
+      },
+      "latency_failures": {
+        "n": 0,
+        "p50_s": null,
+        "p95_s": null
+      },
+      "price_per_1000_decisions_usd": null,
+      "cost_basis": [
+        "local_apple_silicon_unmetered_compute_not_free"
+      ]
+    },
+    "fact": {
+      "n_planned": 12,
+      "n_attempted": 12,
+      "n_scorable": 12,
+      "n_valid": 12,
+      "n_correct": 8,
+      "accuracy": 0.6666666666666666,
+      "coverage": 1.0,
+      "schema_validity": 1.0,
+      "schema_validity_strict": 1.0,
+      "n_renormalized": 0,
+      "operational_success": 1.0,
+      "calibration_n": 12,
+      "brier_mean": 0.4132928732226025,
+      "ece": {
+        "ece": 0.15046656231416777,
+        "n": 12,
+        "bins": [
+          {
+            "lo": 0.0,
+            "hi": 0.1,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.1,
+            "hi": 0.2,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.2,
+            "hi": 0.3,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.3,
+            "hi": 0.4,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.5,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.5,
+            "hi": 0.6,
+            "n": 3,
+            "mean_confidence": 0.5620174914045414,
+            "accuracy": 0.6666666666666666
+          },
+          {
+            "lo": 0.6,
+            "hi": 0.7,
+            "n": 4,
+            "mean_confidence": 0.6441309813000043,
+            "accuracy": 0.5
+          },
+          {
+            "lo": 0.7,
+            "hi": 0.8,
+            "n": 1,
+            "mean_confidence": 0.7772998611746911,
+            "accuracy": 1.0
+          },
+          {
+            "lo": 0.8,
+            "hi": 0.9,
+            "n": 3,
+            "mean_confidence": 0.8656925643530672,
+            "accuracy": 0.6666666666666666
+          },
+          {
+            "lo": 0.9,
+            "hi": 1.0,
+            "n": 1,
+            "mean_confidence": 0.9046505351008906,
+            "accuracy": 1.0
+          }
+        ]
+      },
+      "ordinal_mae": null,
+      "latency": {
+        "n": 12,
+        "p50_s": 0.08720887449999282,
+        "p95_s": 0.08884322279986918
+      },
+      "latency_failures": {
+        "n": 0,
+        "p50_s": null,
+        "p95_s": null
+      },
+      "price_per_1000_decisions_usd": null,
+      "cost_basis": [
+        "local_apple_silicon_unmetered_compute_not_free"
+      ]
+    },
+    "intent": {
+      "n_planned": 24,
+      "n_attempted": 24,
+      "n_scorable": 24,
+      "n_valid": 24,
+      "n_correct": 6,
+      "accuracy": 0.25,
+      "coverage": 1.0,
+      "schema_validity": 1.0,
+      "schema_validity_strict": 1.0,
+      "n_renormalized": 0,
+      "operational_success": 1.0,
+      "calibration_n": 24,
+      "brier_mean": 1.2279670891248917,
+      "ece": {
+        "ece": 0.6313903402885765,
+        "n": 24,
+        "bins": [
+          {
+            "lo": 0.0,
+            "hi": 0.1,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.1,
+            "hi": 0.2,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.2,
+            "hi": 0.3,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.3,
+            "hi": 0.4,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.5,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.5,
+            "hi": 0.6,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.6,
+            "hi": 0.7,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.7,
+            "hi": 0.8,
+            "n": 1,
+            "mean_confidence": 0.7663649711440689,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.8,
+            "hi": 0.9,
+            "n": 14,
+            "mean_confidence": 0.8583265616494394,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.9,
+            "hi": 1.0,
+            "n": 9,
+            "mean_confidence": 0.9300479258544017,
+            "accuracy": 0.6666666666666666
+          }
+        ]
+      },
+      "ordinal_mae": null,
+      "latency": {
+        "n": 24,
+        "p50_s": 0.09449012499999299,
+        "p95_s": 0.11055712494985527
+      },
+      "latency_failures": {
+        "n": 0,
+        "p50_s": null,
+        "p95_s": null
+      },
+      "price_per_1000_decisions_usd": null,
+      "cost_basis": [
+        "local_apple_silicon_unmetered_compute_not_free"
+      ]
+    },
+    "judge_hard": {
+      "n_planned": 17,
+      "n_attempted": 17,
+      "n_scorable": 17,
+      "n_valid": 17,
+      "n_correct": 7,
+      "accuracy": 0.4117647058823529,
+      "coverage": 1.0,
+      "schema_validity": 1.0,
+      "schema_validity_strict": 1.0,
+      "n_renormalized": 0,
+      "operational_success": 1.0,
+      "calibration_n": 17,
+      "brier_mean": 0.6739883088568291,
+      "ece": {
+        "ece": 0.30159314258421704,
+        "n": 17,
+        "bins": [
+          {
+            "lo": 0.0,
+            "hi": 0.1,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.1,
+            "hi": 0.2,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.2,
+            "hi": 0.3,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.3,
+            "hi": 0.4,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.5,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.5,
+            "hi": 0.6,
+            "n": 3,
+            "mean_confidence": 0.5723398672418886,
+            "accuracy": 0.3333333333333333
+          },
+          {
+            "lo": 0.6,
+            "hi": 0.7,
+            "n": 1,
+            "mean_confidence": 0.679178699175393,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.7,
+            "hi": 0.8,
+            "n": 12,
+            "mean_confidence": 0.7399110267551934,
+            "accuracy": 0.5
+          },
+          {
+            "lo": 0.8,
+            "hi": 0.9,
+            "n": 1,
+            "mean_confidence": 0.8519528019683106,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.9,
+            "hi": 1.0,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          }
+        ]
+      },
+      "ordinal_mae": null,
+      "latency": {
+        "n": 17,
+        "p50_s": 0.13836254199941322,
+        "p95_s": 0.15370783359976486
+      },
+      "latency_failures": {
+        "n": 0,
+        "p50_s": null,
+        "p95_s": null
+      },
+      "price_per_1000_decisions_usd": null,
+      "cost_basis": [
+        "local_apple_silicon_unmetered_compute_not_free"
+      ]
+    },
+    "long_policy": {
+      "n_planned": 19,
+      "n_attempted": 19,
+      "n_scorable": 19,
+      "n_valid": 17,
+      "n_correct": 2,
+      "accuracy": 0.10526315789473684,
+      "coverage": 1.0,
+      "schema_validity": 0.8947368421052632,
+      "schema_validity_strict": 0.8947368421052632,
+      "n_renormalized": 0,
+      "operational_success": 0.9473684210526315,
+      "calibration_n": 17,
+      "brier_mean": 1.1035161375541802,
+      "ece": {
+        "ece": 0.5417997233664589,
+        "n": 17,
+        "bins": [
+          {
+            "lo": 0.0,
+            "hi": 0.1,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.1,
+            "hi": 0.2,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.2,
+            "hi": 0.3,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.3,
+            "hi": 0.4,
+            "n": 1,
+            "mean_confidence": 0.3163682123810394,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.5,
+            "n": 1,
+            "mean_confidence": 0.46138764366910356,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.5,
+            "hi": 0.6,
+            "n": 4,
+            "mean_confidence": 0.5660277841890932,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.6,
+            "hi": 0.7,
+            "n": 2,
+            "mean_confidence": 0.6665454849589894,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.7,
+            "hi": 0.8,
+            "n": 7,
+            "mean_confidence": 0.740974237962868,
+            "accuracy": 0.14285714285714285
+          },
+          {
+            "lo": 0.8,
+            "hi": 0.9,
+            "n": 2,
+            "mean_confidence": 0.8244088343826154,
+            "accuracy": 0.5
+          },
+          {
+            "lo": 0.9,
+            "hi": 1.0,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          }
+        ]
+      },
+      "ordinal_mae": 0.8629287177465905,
+      "latency": {
+        "n": 19,
+        "p50_s": 0.7280141250002998,
+        "p95_s": 0.9756062287998247
+      },
+      "latency_failures": {
+        "n": 1,
+        "p50_s": 0.06006462499954068,
+        "p95_s": 0.06006462499954068
+      },
+      "price_per_1000_decisions_usd": null,
+      "cost_basis": [
+        "local_apple_silicon_unmetered_compute_not_free"
+      ]
+    },
+    "multi_hop": {
+      "n_planned": 18,
+      "n_attempted": 18,
+      "n_scorable": 18,
+      "n_valid": 17,
+      "n_correct": 1,
+      "accuracy": 0.05555555555555555,
+      "coverage": 1.0,
+      "schema_validity": 0.9444444444444444,
+      "schema_validity_strict": 0.9444444444444444,
+      "n_renormalized": 0,
+      "operational_success": 1.0,
+      "calibration_n": 17,
+      "brier_mean": 1.1233671263783738,
+      "ece": {
+        "ece": 0.5512010125929134,
+        "n": 17,
+        "bins": [
+          {
+            "lo": 0.0,
+            "hi": 0.1,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.1,
+            "hi": 0.2,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.2,
+            "hi": 0.3,
+            "n": 1,
+            "mean_confidence": 0.2632323591154791,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.3,
+            "hi": 0.4,
+            "n": 1,
+            "mean_confidence": 0.33407208669473526,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.5,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.5,
+            "hi": 0.6,
+            "n": 8,
+            "mean_confidence": 0.5610052460225483,
+            "accuracy": 0.125
+          },
+          {
+            "lo": 0.6,
+            "hi": 0.7,
+            "n": 3,
+            "mean_confidence": 0.6611505120118187,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.7,
+            "hi": 0.8,
+            "n": 1,
+            "mean_confidence": 0.7212405014462894,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.8,
+            "hi": 0.9,
+            "n": 3,
+            "mean_confidence": 0.8601262542023943,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.9,
+            "hi": 1.0,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          }
+        ]
+      },
+      "ordinal_mae": 0.4074661863532736,
+      "latency": {
+        "n": 18,
+        "p50_s": 0.6305781869996281,
+        "p95_s": 0.7440861963993938
+      },
+      "latency_failures": {
+        "n": 0,
+        "p50_s": null,
+        "p95_s": null
+      },
+      "price_per_1000_decisions_usd": null,
+      "cost_basis": [
+        "local_apple_silicon_unmetered_compute_not_free"
+      ]
+    },
+    "ordinal": {
+      "n_planned": 12,
+      "n_attempted": 12,
+      "n_scorable": 12,
+      "n_valid": 12,
+      "n_correct": 5,
+      "accuracy": 0.4166666666666667,
+      "coverage": 1.0,
+      "schema_validity": 1.0,
+      "schema_validity_strict": 1.0,
+      "n_renormalized": 0,
+      "operational_success": 1.0,
+      "calibration_n": 12,
+      "brier_mean": 0.6281661175578869,
+      "ece": {
+        "ece": 0.22340048264809814,
+        "n": 12,
+        "bins": [
+          {
+            "lo": 0.0,
+            "hi": 0.1,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.1,
+            "hi": 0.2,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.2,
+            "hi": 0.3,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.3,
+            "hi": 0.4,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.5,
+            "n": 3,
+            "mean_confidence": 0.47589157336740356,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.5,
+            "hi": 0.6,
+            "n": 5,
+            "mean_confidence": 0.545793381454253,
+            "accuracy": 0.4
+          },
+          {
+            "lo": 0.6,
+            "hi": 0.7,
+            "n": 4,
+            "mean_confidence": 0.6189589588990745,
+            "accuracy": 0.75
+          },
+          {
+            "lo": 0.7,
+            "hi": 0.8,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.8,
+            "hi": 0.9,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.9,
+            "hi": 1.0,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          }
+        ]
+      },
+      "ordinal_mae": 0.9542059782270518,
+      "latency": {
+        "n": 12,
+        "p50_s": 0.09269647949986393,
+        "p95_s": 0.09485001890016065
+      },
+      "latency_failures": {
+        "n": 0,
+        "p50_s": null,
+        "p95_s": null
+      },
+      "price_per_1000_decisions_usd": null,
+      "cost_basis": [
+        "local_apple_silicon_unmetered_compute_not_free"
+      ]
+    },
+    "policy": {
+      "n_planned": 12,
+      "n_attempted": 12,
+      "n_scorable": 12,
+      "n_valid": 10,
+      "n_correct": 6,
+      "accuracy": 0.5,
+      "coverage": 1.0,
+      "schema_validity": 0.8333333333333334,
+      "schema_validity_strict": 0.8333333333333334,
+      "n_renormalized": 0,
+      "operational_success": 1.0,
+      "calibration_n": 10,
+      "brier_mean": 0.47801554222931675,
+      "ece": {
+        "ece": 0.03716615851262293,
+        "n": 10,
+        "bins": [
+          {
+            "lo": 0.0,
+            "hi": 0.1,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.1,
+            "hi": 0.2,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.2,
+            "hi": 0.3,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.3,
+            "hi": 0.4,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.5,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.5,
+            "hi": 0.6,
+            "n": 4,
+            "mean_confidence": 0.5696797685419234,
+            "accuracy": 0.5
+          },
+          {
+            "lo": 0.6,
+            "hi": 0.7,
+            "n": 6,
+            "mean_confidence": 0.6511762481735773,
+            "accuracy": 0.6666666666666666
+          },
+          {
+            "lo": 0.7,
+            "hi": 0.8,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.8,
+            "hi": 0.9,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.9,
+            "hi": 1.0,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          }
+        ]
+      },
+      "ordinal_mae": null,
+      "latency": {
+        "n": 12,
+        "p50_s": 0.08852649949994884,
+        "p95_s": 0.08970676454973728
+      },
+      "latency_failures": {
+        "n": 0,
+        "p50_s": null,
+        "p95_s": null
+      },
+      "price_per_1000_decisions_usd": null,
+      "cost_basis": [
+        "local_apple_silicon_unmetered_compute_not_free"
+      ]
+    },
+    "probability": {
+      "n_planned": 10,
+      "n_attempted": 10,
+      "n_scorable": 10,
+      "n_valid": 10,
+      "n_correct": 3,
+      "accuracy": 0.3,
+      "coverage": 1.0,
+      "schema_validity": 1.0,
+      "schema_validity_strict": 1.0,
+      "n_renormalized": 0,
+      "operational_success": 1.0,
+      "calibration_n": 10,
+      "brier_mean": 0.9442829590821556,
+      "ece": {
+        "ece": 0.4242761829777354,
+        "n": 10,
+        "bins": [
+          {
+            "lo": 0.0,
+            "hi": 0.1,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.1,
+            "hi": 0.2,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.2,
+            "hi": 0.3,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.3,
+            "hi": 0.4,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.5,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.5,
+            "hi": 0.6,
+            "n": 3,
+            "mean_confidence": 0.564007968453709,
+            "accuracy": 0.6666666666666666
+          },
+          {
+            "lo": 0.6,
+            "hi": 0.7,
+            "n": 4,
+            "mean_confidence": 0.6525638251600574,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.7,
+            "hi": 0.8,
+            "n": 2,
+            "mean_confidence": 0.7370405887693374,
+            "accuracy": 0.5
+          },
+          {
+            "lo": 0.8,
+            "hi": 0.9,
+            "n": 1,
+            "mean_confidence": 0.8504492569595764,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.9,
+            "hi": 1.0,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          }
+        ]
+      },
+      "ordinal_mae": null,
+      "latency": {
+        "n": 10,
+        "p50_s": 0.2840469999996458,
+        "p95_s": 0.4540886208001209
+      },
+      "latency_failures": {
+        "n": 0,
+        "p50_s": null,
+        "p95_s": null
+      },
+      "price_per_1000_decisions_usd": null,
+      "cost_basis": [
+        "local_apple_silicon_unmetered_compute_not_free"
+      ]
+    },
+    "routing": {
+      "n_planned": 12,
+      "n_attempted": 12,
+      "n_scorable": 12,
+      "n_valid": 12,
+      "n_correct": 2,
+      "accuracy": 0.16666666666666666,
+      "coverage": 1.0,
+      "schema_validity": 1.0,
+      "schema_validity_strict": 1.0,
+      "n_renormalized": 0,
+      "operational_success": 1.0,
+      "calibration_n": 12,
+      "brier_mean": 1.160156680640726,
+      "ece": {
+        "ece": 0.6297412735921993,
+        "n": 12,
+        "bins": [
+          {
+            "lo": 0.0,
+            "hi": 0.1,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.1,
+            "hi": 0.2,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.2,
+            "hi": 0.3,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.3,
+            "hi": 0.4,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.5,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.5,
+            "hi": 0.6,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.6,
+            "hi": 0.7,
+            "n": 2,
+            "mean_confidence": 0.692900259570641,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.7,
+            "hi": 0.8,
+            "n": 8,
+            "mean_confidence": 0.7317011437274168,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.8,
+            "hi": 0.9,
+            "n": 2,
+            "mean_confidence": 0.8412571929271122,
+            "accuracy": 1.0
+          },
+          {
+            "lo": 0.9,
+            "hi": 1.0,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          }
+        ]
+      },
+      "ordinal_mae": null,
+      "latency": {
+        "n": 12,
+        "p50_s": 0.11501518749992101,
+        "p95_s": 0.11664866699979938
+      },
+      "latency_failures": {
+        "n": 0,
+        "p50_s": null,
+        "p95_s": null
+      },
+      "price_per_1000_decisions_usd": null,
+      "cost_basis": [
+        "local_apple_silicon_unmetered_compute_not_free"
+      ]
+    },
+    "routing_hard": {
+      "n_planned": 5,
+      "n_attempted": 5,
+      "n_scorable": 5,
+      "n_valid": 5,
+      "n_correct": 0,
+      "accuracy": 0.0,
+      "coverage": 1.0,
+      "schema_validity": 1.0,
+      "schema_validity_strict": 1.0,
+      "n_renormalized": 0,
+      "operational_success": 1.0,
+      "calibration_n": 5,
+      "brier_mean": 1.4959134480813643,
+      "ece": {
+        "ece": 0.8203204625720019,
+        "n": 5,
+        "bins": [
+          {
+            "lo": 0.0,
+            "hi": 0.1,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.1,
+            "hi": 0.2,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.2,
+            "hi": 0.3,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.3,
+            "hi": 0.4,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.5,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.5,
+            "hi": 0.6,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.6,
+            "hi": 0.7,
+            "n": 1,
+            "mean_confidence": 0.6868285824816999,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.7,
+            "hi": 0.8,
+            "n": 1,
+            "mean_confidence": 0.7858274161904717,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.8,
+            "hi": 0.9,
+            "n": 2,
+            "mean_confidence": 0.8443050671596366,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.9,
+            "hi": 1.0,
+            "n": 1,
+            "mean_confidence": 0.9403361798685644,
+            "accuracy": 0.0
+          }
+        ]
+      },
+      "ordinal_mae": null,
+      "latency": {
+        "n": 5,
+        "p50_s": 0.13995787500061851,
+        "p95_s": 0.14434770819971163
+      },
+      "latency_failures": {
+        "n": 0,
+        "p50_s": null,
+        "p95_s": null
+      },
+      "price_per_1000_decisions_usd": null,
+      "cost_basis": [
+        "local_apple_silicon_unmetered_compute_not_free"
+      ]
+    },
+    "temporal_numeric": {
+      "n_planned": 15,
+      "n_attempted": 15,
+      "n_scorable": 15,
+      "n_valid": 15,
+      "n_correct": 4,
+      "accuracy": 0.26666666666666666,
+      "coverage": 1.0,
+      "schema_validity": 1.0,
+      "schema_validity_strict": 1.0,
+      "n_renormalized": 0,
+      "operational_success": 1.0,
+      "calibration_n": 15,
+      "brier_mean": 0.9922190757422025,
+      "ece": {
+        "ece": 0.44140527977355637,
+        "n": 15,
+        "bins": [
+          {
+            "lo": 0.0,
+            "hi": 0.1,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.1,
+            "hi": 0.2,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.2,
+            "hi": 0.3,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.3,
+            "hi": 0.4,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.5,
+            "n": 1,
+            "mean_confidence": 0.45072040985044015,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.5,
+            "hi": 0.6,
+            "n": 3,
+            "mean_confidence": 0.5532094169769858,
+            "accuracy": 0.6666666666666666
+          },
+          {
+            "lo": 0.6,
+            "hi": 0.7,
+            "n": 6,
+            "mean_confidence": 0.6384175891406985,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.7,
+            "hi": 0.8,
+            "n": 3,
+            "mean_confidence": 0.7405153629425406,
+            "accuracy": 0.6666666666666666
+          },
+          {
+            "lo": 0.8,
+            "hi": 0.9,
+            "n": 1,
+            "mean_confidence": 0.8519528019683106,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.9,
+            "hi": 1.0,
+            "n": 1,
+            "mean_confidence": 0.9259826120437401,
+            "accuracy": 0.0
+          }
+        ]
+      },
+      "ordinal_mae": 1.0484739273097605,
+      "latency": {
+        "n": 15,
+        "p50_s": 0.21976983300010033,
+        "p95_s": 0.3485501831999499
+      },
+      "latency_failures": {
+        "n": 0,
+        "p50_s": null,
+        "p95_s": null
+      },
+      "price_per_1000_decisions_usd": null,
+      "cost_basis": [
+        "local_apple_silicon_unmetered_compute_not_free"
+      ]
+    },
+    "tool_selection": {
+      "n_planned": 12,
+      "n_attempted": 12,
+      "n_scorable": 12,
+      "n_valid": 11,
+      "n_correct": 3,
+      "accuracy": 0.25,
+      "coverage": 1.0,
+      "schema_validity": 0.9166666666666666,
+      "schema_validity_strict": 0.9166666666666666,
+      "n_renormalized": 0,
+      "operational_success": 1.0,
+      "calibration_n": 11,
+      "brier_mean": 0.787552415793429,
+      "ece": {
+        "ece": 0.47186418314333445,
+        "n": 11,
+        "bins": [
+          {
+            "lo": 0.0,
+            "hi": 0.1,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.1,
+            "hi": 0.2,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.2,
+            "hi": 0.3,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.3,
+            "hi": 0.4,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.5,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.5,
+            "hi": 0.6,
+            "n": 2,
+            "mean_confidence": 0.5809547263228397,
+            "accuracy": 0.5
+          },
+          {
+            "lo": 0.6,
+            "hi": 0.7,
+            "n": 5,
+            "mean_confidence": 0.6815786576102746,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.7,
+            "hi": 0.8,
+            "n": 2,
+            "mean_confidence": 0.7709375911752642,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.8,
+            "hi": 0.9,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.9,
+            "hi": 1.0,
+            "n": 2,
+            "mean_confidence": 0.9605859542354509,
+            "accuracy": 1.0
+          }
+        ]
+      },
+      "ordinal_mae": null,
+      "latency": {
+        "n": 12,
+        "p50_s": 0.10082014550016538,
+        "p95_s": 0.11210270394999497
+      },
+      "latency_failures": {
+        "n": 0,
+        "p50_s": null,
+        "p95_s": null
+      },
+      "price_per_1000_decisions_usd": null,
+      "cost_basis": [
+        "local_apple_silicon_unmetered_compute_not_free"
+      ]
+    },
+    "tradeoff": {
+      "n_planned": 6,
+      "n_attempted": 6,
+      "n_scorable": 6,
+      "n_valid": 6,
+      "n_correct": 3,
+      "accuracy": 0.5,
+      "coverage": 1.0,
+      "schema_validity": 1.0,
+      "schema_validity_strict": 1.0,
+      "n_renormalized": 0,
+      "operational_success": 1.0,
+      "calibration_n": 6,
+      "brier_mean": 0.7176478397379679,
+      "ece": {
+        "ece": 0.3021754515431992,
+        "n": 6,
+        "bins": [
+          {
+            "lo": 0.0,
+            "hi": 0.1,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.1,
+            "hi": 0.2,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.2,
+            "hi": 0.3,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.3,
+            "hi": 0.4,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.5,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.5,
+            "hi": 0.6,
+            "n": 1,
+            "mean_confidence": 0.5915172155505313,
+            "accuracy": 1.0
+          },
+          {
+            "lo": 0.6,
+            "hi": 0.7,
+            "n": 2,
+            "mean_confidence": 0.6383854066418444,
+            "accuracy": 0.5
+          },
+          {
+            "lo": 0.7,
+            "hi": 0.8,
+            "n": 3,
+            "mean_confidence": 0.7092663705086792,
+            "accuracy": 0.3333333333333333
+          },
+          {
+            "lo": 0.8,
+            "hi": 0.9,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.9,
+            "hi": 1.0,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          }
+        ]
+      },
+      "ordinal_mae": null,
+      "latency": {
+        "n": 6,
+        "p50_s": 0.2562452505003421,
+        "p95_s": 0.2760219685001175
+      },
+      "latency_failures": {
+        "n": 0,
+        "p50_s": null,
+        "p95_s": null
+      },
+      "price_per_1000_decisions_usd": null,
+      "cost_basis": [
+        "local_apple_silicon_unmetered_compute_not_free"
+      ]
+    },
+    "trap": {
+      "n_planned": 8,
+      "n_attempted": 8,
+      "n_scorable": 8,
+      "n_valid": 8,
+      "n_correct": 1,
+      "accuracy": 0.125,
+      "coverage": 1.0,
+      "schema_validity": 1.0,
+      "schema_validity_strict": 1.0,
+      "n_renormalized": 0,
+      "operational_success": 1.0,
+      "calibration_n": 8,
+      "brier_mean": 1.0600235924438328,
+      "ece": {
+        "ece": 0.5608743411719878,
+        "n": 8,
+        "bins": [
+          {
+            "lo": 0.0,
+            "hi": 0.1,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.1,
+            "hi": 0.2,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.2,
+            "hi": 0.3,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.3,
+            "hi": 0.4,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.5,
+            "n": 1,
+            "mean_confidence": 0.4678876638620664,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.5,
+            "hi": 0.6,
+            "n": 3,
+            "mean_confidence": 0.5597881959058227,
+            "accuracy": 0.3333333333333333
+          },
+          {
+            "lo": 0.6,
+            "hi": 0.7,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.7,
+            "hi": 0.8,
+            "n": 2,
+            "mean_confidence": 0.7772998611746911,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.8,
+            "hi": 0.9,
+            "n": 1,
+            "mean_confidence": 0.8329241094603547,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.9,
+            "hi": 1.0,
+            "n": 1,
+            "mean_confidence": 0.9522186459866306,
+            "accuracy": 0.0
+          }
+        ]
+      },
+      "ordinal_mae": 1.5787471261187447,
+      "latency": {
+        "n": 8,
+        "p50_s": 0.13775879199965857,
+        "p95_s": 0.1524696977003714
+      },
+      "latency_failures": {
+        "n": 0,
+        "p50_s": null,
+        "p95_s": null
+      },
+      "price_per_1000_decisions_usd": null,
+      "cost_basis": [
+        "local_apple_silicon_unmetered_compute_not_free"
+      ]
+    }
+  },
+  "complete": true,
+  "paraphrase_consistency": {
+    "pairs": 36,
+    "both_valid": 34,
+    "agree": 33,
+    "agreement": 0.9705882352941176,
+    "both_correct_rate_all_pairs": 0.3055555555555556
+  },
+  "model_identities": [
+    "2fc06364715b967f1860aea9cf38778875588b17"
+  ],
+  "probability_sources": [
+    "label_only_no_calibrated_distribution",
+    "native",
+    "unknown"
+  ],
+  "splits": {
+    "public": {
+      "n_planned": 231,
+      "n_attempted": 231,
+      "n_scorable": 231,
+      "n_valid": 225,
+      "n_correct": 75,
+      "accuracy": 0.3246753246753247,
+      "coverage": 1.0,
+      "schema_validity": 0.974025974025974,
+      "schema_validity_strict": 0.974025974025974,
+      "n_renormalized": 0,
+      "operational_success": 0.9956709956709957,
+      "calibration_n": 225,
+      "brier_mean": 0.874725221366013,
+      "ece": {
+        "ece": 0.3782211322358528,
+        "n": 225,
+        "bins": [
+          {
+            "lo": 0.0,
+            "hi": 0.1,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.1,
+            "hi": 0.2,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.2,
+            "hi": 0.3,
+            "n": 1,
+            "mean_confidence": 0.2632323591154791,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.3,
+            "hi": 0.4,
+            "n": 2,
+            "mean_confidence": 0.32522014953788736,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.5,
+            "n": 8,
+            "mean_confidence": 0.47118442914350556,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.5,
+            "hi": 0.6,
+            "n": 44,
+            "mean_confidence": 0.5652287623965186,
+            "accuracy": 0.38636363636363635
+          },
+          {
+            "lo": 0.6,
+            "hi": 0.7,
+            "n": 46,
+            "mean_confidence": 0.6540469136205802,
+            "accuracy": 0.32608695652173914
+          },
+          {
+            "lo": 0.7,
+            "hi": 0.8,
+            "n": 61,
+            "mean_confidence": 0.7458778090695741,
+            "accuracy": 0.3114754098360656
+          },
+          {
+            "lo": 0.8,
+            "hi": 0.9,
+            "n": 45,
+            "mean_confidence": 0.8476103042697719,
+            "accuracy": 0.26666666666666666
+          },
+          {
+            "lo": 0.9,
+            "hi": 1.0,
+            "n": 18,
+            "mean_confidence": 0.9344096135750176,
+            "accuracy": 0.6666666666666666
+          }
+        ]
+      },
+      "ordinal_mae": 0.9084640723358083,
+      "latency": {
+        "n": 231,
+        "p50_s": 0.11456883400023798,
+        "p95_s": 0.7246644169999854
+      },
+      "latency_failures": {
+        "n": 1,
+        "p50_s": 0.06006462499954068,
+        "p95_s": 0.06006462499954068
+      },
+      "price_per_1000_decisions_usd": null,
+      "cost_basis": [
+        "local_apple_silicon_unmetered_compute_not_free"
+      ]
+    }
+  },
+  "ledger_charged_usd": 0.0,
+  "profile": "qa_question_slot",
+  "tiers": {
+    "easy": {
+      "n_planned": 48,
+      "n_attempted": 48,
+      "n_scorable": 48,
+      "n_valid": 47,
+      "n_correct": 21,
+      "accuracy": 0.4375,
+      "coverage": 1.0,
+      "schema_validity": 0.9791666666666666,
+      "schema_validity_strict": 0.9791666666666666,
+      "n_renormalized": 0,
+      "operational_success": 1.0,
+      "calibration_n": 47,
+      "brier_mean": 0.7151993250866838,
+      "ece": {
+        "ece": 0.319788898093977,
+        "n": 47,
+        "bins": [
+          {
+            "lo": 0.0,
+            "hi": 0.1,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.1,
+            "hi": 0.2,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.2,
+            "hi": 0.3,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.3,
+            "hi": 0.4,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.5,
+            "n": 1,
+            "mean_confidence": 0.4978294296707772,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.5,
+            "hi": 0.6,
+            "n": 7,
+            "mean_confidence": 0.5744225137204969,
+            "accuracy": 0.5714285714285714
+          },
+          {
+            "lo": 0.6,
+            "hi": 0.7,
+            "n": 9,
+            "mean_confidence": 0.6649352459168212,
+            "accuracy": 0.2222222222222222
+          },
+          {
+            "lo": 0.7,
+            "hi": 0.8,
+            "n": 9,
+            "mean_confidence": 0.7521931870205533,
+            "accuracy": 0.4444444444444444
+          },
+          {
+            "lo": 0.8,
+            "hi": 0.9,
+            "n": 12,
+            "mean_confidence": 0.8548350876511416,
+            "accuracy": 0.25
+          },
+          {
+            "lo": 0.9,
+            "hi": 1.0,
+            "n": 9,
+            "mean_confidence": 0.9443460262725103,
+            "accuracy": 0.8888888888888888
+          }
+        ]
+      },
+      "ordinal_mae": null,
+      "latency": {
+        "n": 48,
+        "p50_s": 0.09207975000026636,
+        "p95_s": 0.11170523290002166
+      },
+      "latency_failures": {
+        "n": 0,
+        "p50_s": null,
+        "p95_s": null
+      },
+      "price_per_1000_decisions_usd": null,
+      "cost_basis": [
+        "local_apple_silicon_unmetered_compute_not_free"
+      ],
+      "version": "jevbench-v1",
+      "macro_accuracy": 0.4375,
+      "per_family": {
+        "extraction": {
+          "n_planned": 12,
+          "n_attempted": 12,
+          "n_scorable": 12,
+          "n_valid": 12,
+          "n_correct": 6,
+          "accuracy": 0.5,
+          "coverage": 1.0,
+          "schema_validity": 1.0,
+          "schema_validity_strict": 1.0,
+          "n_renormalized": 0,
+          "operational_success": 1.0,
+          "calibration_n": 12,
+          "brier_mean": 0.6387656932321287,
+          "ece": {
+            "ece": 0.2472646123424115,
+            "n": 12,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 1,
+                "mean_confidence": 0.4978294296707772,
+                "accuracy": 0.0
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6,
+                "n": 2,
+                "mean_confidence": 0.5864978345920875,
+                "accuracy": 0.5
+              },
+              {
+                "lo": 0.6,
+                "hi": 0.7,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.7,
+                "hi": 0.8,
+                "n": 5,
+                "mean_confidence": 0.7368397337031383,
+                "accuracy": 0.6
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 3,
+                "mean_confidence": 0.8583467905158044,
+                "accuracy": 0.3333333333333333
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 1,
+                "mean_confidence": 0.9628887908091189,
+                "accuracy": 1.0
+              }
+            ]
+          },
+          "ordinal_mae": null,
+          "latency": {
+            "n": 12,
+            "p50_s": 0.0894285000003947,
+            "p95_s": 0.0927807248499903
+          },
+          "latency_failures": {
+            "n": 0,
+            "p50_s": null,
+            "p95_s": null
+          },
+          "price_per_1000_decisions_usd": null,
+          "cost_basis": [
+            "local_apple_silicon_unmetered_compute_not_free"
+          ]
+        },
+        "fact": {
+          "n_planned": 12,
+          "n_attempted": 12,
+          "n_scorable": 12,
+          "n_valid": 12,
+          "n_correct": 8,
+          "accuracy": 0.6666666666666666,
+          "coverage": 1.0,
+          "schema_validity": 1.0,
+          "schema_validity_strict": 1.0,
+          "n_renormalized": 0,
+          "operational_success": 1.0,
+          "calibration_n": 12,
+          "brier_mean": 0.4132928732226025,
+          "ece": {
+            "ece": 0.15046656231416777,
+            "n": 12,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6,
+                "n": 3,
+                "mean_confidence": 0.5620174914045414,
+                "accuracy": 0.6666666666666666
+              },
+              {
+                "lo": 0.6,
+                "hi": 0.7,
+                "n": 4,
+                "mean_confidence": 0.6441309813000043,
+                "accuracy": 0.5
+              },
+              {
+                "lo": 0.7,
+                "hi": 0.8,
+                "n": 1,
+                "mean_confidence": 0.7772998611746911,
+                "accuracy": 1.0
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 3,
+                "mean_confidence": 0.8656925643530672,
+                "accuracy": 0.6666666666666666
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 1,
+                "mean_confidence": 0.9046505351008906,
+                "accuracy": 1.0
+              }
+            ]
+          },
+          "ordinal_mae": null,
+          "latency": {
+            "n": 12,
+            "p50_s": 0.08720887449999282,
+            "p95_s": 0.08884322279986918
+          },
+          "latency_failures": {
+            "n": 0,
+            "p50_s": null,
+            "p95_s": null
+          },
+          "price_per_1000_decisions_usd": null,
+          "cost_basis": [
+            "local_apple_silicon_unmetered_compute_not_free"
+          ]
+        },
+        "intent": {
+          "n_planned": 12,
+          "n_attempted": 12,
+          "n_scorable": 12,
+          "n_valid": 12,
+          "n_correct": 4,
+          "accuracy": 0.3333333333333333,
+          "coverage": 1.0,
+          "schema_validity": 1.0,
+          "schema_validity_strict": 1.0,
+          "n_renormalized": 0,
+          "operational_success": 1.0,
+          "calibration_n": 12,
+          "brier_mean": 1.027215742324137,
+          "ece": {
+            "ece": 0.5468892467019028,
+            "n": 12,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.6,
+                "hi": 0.7,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.7,
+                "hi": 0.8,
+                "n": 1,
+                "mean_confidence": 0.7663649711440689,
+                "accuracy": 0.0
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 6,
+                "mean_confidence": 0.8476504978678473,
+                "accuracy": 0.0
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 5,
+                "mean_confidence": 0.9420806004143362,
+                "accuracy": 0.8
+              }
+            ]
+          },
+          "ordinal_mae": null,
+          "latency": {
+            "n": 12,
+            "p50_s": 0.09449012499999299,
+            "p95_s": 0.13029334389989342
+          },
+          "latency_failures": {
+            "n": 0,
+            "p50_s": null,
+            "p95_s": null
+          },
+          "price_per_1000_decisions_usd": null,
+          "cost_basis": [
+            "local_apple_silicon_unmetered_compute_not_free"
+          ]
+        },
+        "tool_selection": {
+          "n_planned": 12,
+          "n_attempted": 12,
+          "n_scorable": 12,
+          "n_valid": 11,
+          "n_correct": 3,
+          "accuracy": 0.25,
+          "coverage": 1.0,
+          "schema_validity": 0.9166666666666666,
+          "schema_validity_strict": 0.9166666666666666,
+          "n_renormalized": 0,
+          "operational_success": 1.0,
+          "calibration_n": 11,
+          "brier_mean": 0.787552415793429,
+          "ece": {
+            "ece": 0.47186418314333445,
+            "n": 11,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6,
+                "n": 2,
+                "mean_confidence": 0.5809547263228397,
+                "accuracy": 0.5
+              },
+              {
+                "lo": 0.6,
+                "hi": 0.7,
+                "n": 5,
+                "mean_confidence": 0.6815786576102746,
+                "accuracy": 0.0
+              },
+              {
+                "lo": 0.7,
+                "hi": 0.8,
+                "n": 2,
+                "mean_confidence": 0.7709375911752642,
+                "accuracy": 0.0
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 2,
+                "mean_confidence": 0.9605859542354509,
+                "accuracy": 1.0
+              }
+            ]
+          },
+          "ordinal_mae": null,
+          "latency": {
+            "n": 12,
+            "p50_s": 0.10082014550016538,
+            "p95_s": 0.11210270394999497
+          },
+          "latency_failures": {
+            "n": 0,
+            "p50_s": null,
+            "p95_s": null
+          },
+          "price_per_1000_decisions_usd": null,
+          "cost_basis": [
+            "local_apple_silicon_unmetered_compute_not_free"
+          ]
+        }
+      },
+      "complete": true,
+      "paraphrase_consistency": {
+        "pairs": 0,
+        "both_valid": 0,
+        "agree": 0,
+        "agreement": null,
+        "both_correct_rate_all_pairs": null
+      },
+      "model_identities": [
+        "2fc06364715b967f1860aea9cf38778875588b17"
+      ],
+      "probability_sources": [
+        "label_only_no_calibrated_distribution",
+        "native"
+      ],
+      "splits": {
+        "public": {
+          "n_planned": 48,
+          "n_attempted": 48,
+          "n_scorable": 48,
+          "n_valid": 47,
+          "n_correct": 21,
+          "accuracy": 0.4375,
+          "coverage": 1.0,
+          "schema_validity": 0.9791666666666666,
+          "schema_validity_strict": 0.9791666666666666,
+          "n_renormalized": 0,
+          "operational_success": 1.0,
+          "calibration_n": 47,
+          "brier_mean": 0.7151993250866838,
+          "ece": {
+            "ece": 0.319788898093977,
+            "n": 47,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 1,
+                "mean_confidence": 0.4978294296707772,
+                "accuracy": 0.0
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6,
+                "n": 7,
+                "mean_confidence": 0.5744225137204969,
+                "accuracy": 0.5714285714285714
+              },
+              {
+                "lo": 0.6,
+                "hi": 0.7,
+                "n": 9,
+                "mean_confidence": 0.6649352459168212,
+                "accuracy": 0.2222222222222222
+              },
+              {
+                "lo": 0.7,
+                "hi": 0.8,
+                "n": 9,
+                "mean_confidence": 0.7521931870205533,
+                "accuracy": 0.4444444444444444
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 12,
+                "mean_confidence": 0.8548350876511416,
+                "accuracy": 0.25
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 9,
+                "mean_confidence": 0.9443460262725103,
+                "accuracy": 0.8888888888888888
+              }
+            ]
+          },
+          "ordinal_mae": null,
+          "latency": {
+            "n": 48,
+            "p50_s": 0.09207975000026636,
+            "p95_s": 0.11170523290002166
+          },
+          "latency_failures": {
+            "n": 0,
+            "p50_s": null,
+            "p95_s": null
+          },
+          "price_per_1000_decisions_usd": null,
+          "cost_basis": [
+            "local_apple_silicon_unmetered_compute_not_free"
+          ]
+        }
+      },
+      "ledger_charged_usd": null
+    },
+    "original": {
+      "n_planned": 72,
+      "n_attempted": 72,
+      "n_scorable": 72,
+      "n_valid": 70,
+      "n_correct": 25,
+      "accuracy": 0.3472222222222222,
+      "coverage": 1.0,
+      "schema_validity": 0.9722222222222222,
+      "schema_validity_strict": 0.9722222222222222,
+      "n_renormalized": 0,
+      "operational_success": 1.0,
+      "calibration_n": 70,
+      "brier_mean": 0.8883438331875794,
+      "ece": {
+        "ece": 0.3696380731218707,
+        "n": 70,
+        "bins": [
+          {
+            "lo": 0.0,
+            "hi": 0.1,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.1,
+            "hi": 0.2,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.2,
+            "hi": 0.3,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.3,
+            "hi": 0.4,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.5,
+            "n": 3,
+            "mean_confidence": 0.47589157336740356,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.5,
+            "hi": 0.6,
+            "n": 10,
+            "mean_confidence": 0.5600352581393028,
+            "accuracy": 0.4
+          },
+          {
+            "lo": 0.6,
+            "hi": 0.7,
+            "n": 15,
+            "mean_confidence": 0.6499673715554457,
+            "accuracy": 0.6
+          },
+          {
+            "lo": 0.7,
+            "hi": 0.8,
+            "n": 19,
+            "mean_confidence": 0.7515061538526058,
+            "accuracy": 0.21052631578947367
+          },
+          {
+            "lo": 0.8,
+            "hi": 0.9,
+            "n": 18,
+            "mean_confidence": 0.8469526171273376,
+            "accuracy": 0.2777777777777778
+          },
+          {
+            "lo": 0.9,
+            "hi": 1.0,
+            "n": 5,
+            "mean_confidence": 0.9146726424424875,
+            "accuracy": 0.6
+          }
+        ]
+      },
+      "ordinal_mae": 0.9542059782270518,
+      "latency": {
+        "n": 72,
+        "p50_s": 0.09168270800000755,
+        "p95_s": 0.1152752751497701
+      },
+      "latency_failures": {
+        "n": 0,
+        "p50_s": null,
+        "p95_s": null
+      },
+      "price_per_1000_decisions_usd": null,
+      "cost_basis": [
+        "local_apple_silicon_unmetered_compute_not_free"
+      ],
+      "version": "jevbench-v1",
+      "macro_accuracy": 0.34722222222222227,
+      "per_family": {
+        "adequacy": {
+          "n_planned": 12,
+          "n_attempted": 12,
+          "n_scorable": 12,
+          "n_valid": 12,
+          "n_correct": 6,
+          "accuracy": 0.5,
+          "coverage": 1.0,
+          "schema_validity": 1.0,
+          "schema_validity_strict": 1.0,
+          "n_renormalized": 0,
+          "operational_success": 1.0,
+          "calibration_n": 12,
+          "brier_mean": 0.5752895405806283,
+          "ece": {
+            "ece": 0.25756383190219734,
+            "n": 12,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6,
+                "n": 1,
+                "mean_confidence": 0.5926665999540697,
+                "accuracy": 0.0
+              },
+              {
+                "lo": 0.6,
+                "hi": 0.7,
+                "n": 3,
+                "mean_confidence": 0.6602722431842135,
+                "accuracy": 0.6666666666666666
+              },
+              {
+                "lo": 0.7,
+                "hi": 0.8,
+                "n": 7,
+                "mean_confidence": 0.7566415126597975,
+                "accuracy": 0.42857142857142855
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 1,
+                "mean_confidence": 0.8175744761936437,
+                "accuracy": 1.0
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              }
+            ]
+          },
+          "ordinal_mae": null,
+          "latency": {
+            "n": 12,
+            "p50_s": 0.08806970849991558,
+            "p95_s": 0.08946869200021865
+          },
+          "latency_failures": {
+            "n": 0,
+            "p50_s": null,
+            "p95_s": null
+          },
+          "price_per_1000_decisions_usd": null,
+          "cost_basis": [
+            "local_apple_silicon_unmetered_compute_not_free"
+          ]
+        },
+        "extraction": {
+          "n_planned": 12,
+          "n_attempted": 12,
+          "n_scorable": 12,
+          "n_valid": 12,
+          "n_correct": 4,
+          "accuracy": 0.3333333333333333,
+          "coverage": 1.0,
+          "schema_validity": 1.0,
+          "schema_validity_strict": 1.0,
+          "n_renormalized": 0,
+          "operational_success": 1.0,
+          "calibration_n": 12,
+          "brier_mean": 0.9913286336982279,
+          "ece": {
+            "ece": 0.502464306127186,
+            "n": 12,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.6,
+                "hi": 0.7,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.7,
+                "hi": 0.8,
+                "n": 4,
+                "mean_confidence": 0.782129296190398,
+                "accuracy": 0.25
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 7,
+                "mean_confidence": 0.8306270529084492,
+                "accuracy": 0.2857142857142857
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 1,
+                "mean_confidence": 0.9133348815945046,
+                "accuracy": 1.0
+              }
+            ]
+          },
+          "ordinal_mae": null,
+          "latency": {
+            "n": 12,
+            "p50_s": 0.0910778954998932,
+            "p95_s": 0.0930027623499882
+          },
+          "latency_failures": {
+            "n": 0,
+            "p50_s": null,
+            "p95_s": null
+          },
+          "price_per_1000_decisions_usd": null,
+          "cost_basis": [
+            "local_apple_silicon_unmetered_compute_not_free"
+          ]
+        },
+        "intent": {
+          "n_planned": 12,
+          "n_attempted": 12,
+          "n_scorable": 12,
+          "n_valid": 12,
+          "n_correct": 2,
+          "accuracy": 0.16666666666666666,
+          "coverage": 1.0,
+          "schema_validity": 1.0,
+          "schema_validity_strict": 1.0,
+          "n_renormalized": 0,
+          "operational_success": 1.0,
+          "calibration_n": 12,
+          "brier_mean": 1.428718435925646,
+          "ece": {
+            "ece": 0.7158914338752498,
+            "n": 12,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.6,
+                "hi": 0.7,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.7,
+                "hi": 0.8,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 8,
+                "mean_confidence": 0.8663336094856332,
+                "accuracy": 0.0
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 4,
+                "mean_confidence": 0.9150070826544833,
+                "accuracy": 0.5
+              }
+            ]
+          },
+          "ordinal_mae": null,
+          "latency": {
+            "n": 12,
+            "p50_s": 0.09461785399935252,
+            "p95_s": 0.09683863924956312
+          },
+          "latency_failures": {
+            "n": 0,
+            "p50_s": null,
+            "p95_s": null
+          },
+          "price_per_1000_decisions_usd": null,
+          "cost_basis": [
+            "local_apple_silicon_unmetered_compute_not_free"
+          ]
+        },
+        "ordinal": {
+          "n_planned": 12,
+          "n_attempted": 12,
+          "n_scorable": 12,
+          "n_valid": 12,
+          "n_correct": 5,
+          "accuracy": 0.4166666666666667,
+          "coverage": 1.0,
+          "schema_validity": 1.0,
+          "schema_validity_strict": 1.0,
+          "n_renormalized": 0,
+          "operational_success": 1.0,
+          "calibration_n": 12,
+          "brier_mean": 0.6281661175578869,
+          "ece": {
+            "ece": 0.22340048264809814,
+            "n": 12,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 3,
+                "mean_confidence": 0.47589157336740356,
+                "accuracy": 0.0
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6,
+                "n": 5,
+                "mean_confidence": 0.545793381454253,
+                "accuracy": 0.4
+              },
+              {
+                "lo": 0.6,
+                "hi": 0.7,
+                "n": 4,
+                "mean_confidence": 0.6189589588990745,
+                "accuracy": 0.75
+              },
+              {
+                "lo": 0.7,
+                "hi": 0.8,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              }
+            ]
+          },
+          "ordinal_mae": 0.9542059782270518,
+          "latency": {
+            "n": 12,
+            "p50_s": 0.09269647949986393,
+            "p95_s": 0.09485001890016065
+          },
+          "latency_failures": {
+            "n": 0,
+            "p50_s": null,
+            "p95_s": null
+          },
+          "price_per_1000_decisions_usd": null,
+          "cost_basis": [
+            "local_apple_silicon_unmetered_compute_not_free"
+          ]
+        },
+        "policy": {
+          "n_planned": 12,
+          "n_attempted": 12,
+          "n_scorable": 12,
+          "n_valid": 10,
+          "n_correct": 6,
+          "accuracy": 0.5,
+          "coverage": 1.0,
+          "schema_validity": 0.8333333333333334,
+          "schema_validity_strict": 0.8333333333333334,
+          "n_renormalized": 0,
+          "operational_success": 1.0,
+          "calibration_n": 10,
+          "brier_mean": 0.47801554222931675,
+          "ece": {
+            "ece": 0.03716615851262293,
+            "n": 10,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6,
+                "n": 4,
+                "mean_confidence": 0.5696797685419234,
+                "accuracy": 0.5
+              },
+              {
+                "lo": 0.6,
+                "hi": 0.7,
+                "n": 6,
+                "mean_confidence": 0.6511762481735773,
+                "accuracy": 0.6666666666666666
+              },
+              {
+                "lo": 0.7,
+                "hi": 0.8,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              }
+            ]
+          },
+          "ordinal_mae": null,
+          "latency": {
+            "n": 12,
+            "p50_s": 0.08852649949994884,
+            "p95_s": 0.08970676454973728
+          },
+          "latency_failures": {
+            "n": 0,
+            "p50_s": null,
+            "p95_s": null
+          },
+          "price_per_1000_decisions_usd": null,
+          "cost_basis": [
+            "local_apple_silicon_unmetered_compute_not_free"
+          ]
+        },
+        "routing": {
+          "n_planned": 12,
+          "n_attempted": 12,
+          "n_scorable": 12,
+          "n_valid": 12,
+          "n_correct": 2,
+          "accuracy": 0.16666666666666666,
+          "coverage": 1.0,
+          "schema_validity": 1.0,
+          "schema_validity_strict": 1.0,
+          "n_renormalized": 0,
+          "operational_success": 1.0,
+          "calibration_n": 12,
+          "brier_mean": 1.160156680640726,
+          "ece": {
+            "ece": 0.6297412735921993,
+            "n": 12,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.6,
+                "hi": 0.7,
+                "n": 2,
+                "mean_confidence": 0.692900259570641,
+                "accuracy": 0.0
+              },
+              {
+                "lo": 0.7,
+                "hi": 0.8,
+                "n": 8,
+                "mean_confidence": 0.7317011437274168,
+                "accuracy": 0.0
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 2,
+                "mean_confidence": 0.8412571929271122,
+                "accuracy": 1.0
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              }
+            ]
+          },
+          "ordinal_mae": null,
+          "latency": {
+            "n": 12,
+            "p50_s": 0.11501518749992101,
+            "p95_s": 0.11664866699979938
+          },
+          "latency_failures": {
+            "n": 0,
+            "p50_s": null,
+            "p95_s": null
+          },
+          "price_per_1000_decisions_usd": null,
+          "cost_basis": [
+            "local_apple_silicon_unmetered_compute_not_free"
+          ]
+        }
+      },
+      "complete": true,
+      "paraphrase_consistency": {
+        "pairs": 36,
+        "both_valid": 34,
+        "agree": 33,
+        "agreement": 0.9705882352941176,
+        "both_correct_rate_all_pairs": 0.3055555555555556
+      },
+      "model_identities": [
+        "2fc06364715b967f1860aea9cf38778875588b17"
+      ],
+      "probability_sources": [
+        "label_only_no_calibrated_distribution",
+        "native"
+      ],
+      "splits": {
+        "public": {
+          "n_planned": 72,
+          "n_attempted": 72,
+          "n_scorable": 72,
+          "n_valid": 70,
+          "n_correct": 25,
+          "accuracy": 0.3472222222222222,
+          "coverage": 1.0,
+          "schema_validity": 0.9722222222222222,
+          "schema_validity_strict": 0.9722222222222222,
+          "n_renormalized": 0,
+          "operational_success": 1.0,
+          "calibration_n": 70,
+          "brier_mean": 0.8883438331875794,
+          "ece": {
+            "ece": 0.3696380731218707,
+            "n": 70,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 3,
+                "mean_confidence": 0.47589157336740356,
+                "accuracy": 0.0
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6,
+                "n": 10,
+                "mean_confidence": 0.5600352581393028,
+                "accuracy": 0.4
+              },
+              {
+                "lo": 0.6,
+                "hi": 0.7,
+                "n": 15,
+                "mean_confidence": 0.6499673715554457,
+                "accuracy": 0.6
+              },
+              {
+                "lo": 0.7,
+                "hi": 0.8,
+                "n": 19,
+                "mean_confidence": 0.7515061538526058,
+                "accuracy": 0.21052631578947367
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 18,
+                "mean_confidence": 0.8469526171273376,
+                "accuracy": 0.2777777777777778
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 5,
+                "mean_confidence": 0.9146726424424875,
+                "accuracy": 0.6
+              }
+            ]
+          },
+          "ordinal_mae": 0.9542059782270518,
+          "latency": {
+            "n": 72,
+            "p50_s": 0.09168270800000755,
+            "p95_s": 0.1152752751497701
+          },
+          "latency_failures": {
+            "n": 0,
+            "p50_s": null,
+            "p95_s": null
+          },
+          "price_per_1000_decisions_usd": null,
+          "cost_basis": [
+            "local_apple_silicon_unmetered_compute_not_free"
+          ]
+        }
+      },
+      "ledger_charged_usd": null
+    },
+    "hard": {
+      "n_planned": 111,
+      "n_attempted": 111,
+      "n_scorable": 111,
+      "n_valid": 108,
+      "n_correct": 29,
+      "accuracy": 0.26126126126126126,
+      "coverage": 1.0,
+      "schema_validity": 0.972972972972973,
+      "schema_validity_strict": 0.972972972972973,
+      "n_renormalized": 0,
+      "operational_success": 0.990990990990991,
+      "calibration_n": 108,
+      "brier_mean": 0.935321650047669,
+      "ece": {
+        "ece": 0.4092130687418429,
+        "n": 108,
+        "bins": [
+          {
+            "lo": 0.0,
+            "hi": 0.1,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.1,
+            "hi": 0.2,
+            "n": 0,
+            "mean_confidence": null,
+            "accuracy": null
+          },
+          {
+            "lo": 0.2,
+            "hi": 0.3,
+            "n": 1,
+            "mean_confidence": 0.2632323591154791,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.3,
+            "hi": 0.4,
+            "n": 2,
+            "mean_confidence": 0.32522014953788736,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.5,
+            "n": 4,
+            "mean_confidence": 0.46099282084376425,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.5,
+            "hi": 0.6,
+            "n": 27,
+            "mean_confidence": 0.5647687173337155,
+            "accuracy": 0.3333333333333333
+          },
+          {
+            "lo": 0.6,
+            "hi": 0.7,
+            "n": 22,
+            "mean_confidence": 0.6523741018165282,
+            "accuracy": 0.18181818181818182
+          },
+          {
+            "lo": 0.7,
+            "hi": 0.8,
+            "n": 33,
+            "mean_confidence": 0.7409148711169558,
+            "accuracy": 0.3333333333333333
+          },
+          {
+            "lo": 0.8,
+            "hi": 0.9,
+            "n": 15,
+            "mean_confidence": 0.8426197021355968,
+            "accuracy": 0.26666666666666666
+          },
+          {
+            "lo": 0.9,
+            "hi": 1.0,
+            "n": 4,
+            "mean_confidence": 0.9367238989213218,
+            "accuracy": 0.25
+          }
+        ]
+      },
+      "ordinal_mae": 0.8169802605533208,
+      "latency": {
+        "n": 111,
+        "p50_s": 0.21601704099975905,
+        "p95_s": 0.8793792914998448
+      },
+      "latency_failures": {
+        "n": 1,
+        "p50_s": 0.06006462499954068,
+        "p95_s": 0.06006462499954068
+      },
+      "price_per_1000_decisions_usd": null,
+      "cost_basis": [
+        "local_apple_silicon_unmetered_compute_not_free"
+      ],
+      "version": "jevbench-v1",
+      "macro_accuracy": 0.30023453240945497,
+      "per_family": {
+        "adversarial": {
+          "n_planned": 6,
+          "n_attempted": 6,
+          "n_scorable": 6,
+          "n_valid": 6,
+          "n_correct": 4,
+          "accuracy": 0.6666666666666666,
+          "coverage": 1.0,
+          "schema_validity": 1.0,
+          "schema_validity_strict": 1.0,
+          "n_renormalized": 0,
+          "operational_success": 1.0,
+          "calibration_n": 6,
+          "brier_mean": 0.5261407453271869,
+          "ece": {
+            "ece": 0.2638168684767739,
+            "n": 6,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6,
+                "n": 2,
+                "mean_confidence": 0.5785243508939035,
+                "accuracy": 0.5
+              },
+              {
+                "lo": 0.6,
+                "hi": 0.7,
+                "n": 1,
+                "mean_confidence": 0.6838289943586172,
+                "accuracy": 1.0
+              },
+              {
+                "lo": 0.7,
+                "hi": 0.8,
+                "n": 1,
+                "mean_confidence": 0.748733157994345,
+                "accuracy": 0.0
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 2,
+                "mean_confidence": 0.8195258272814457,
+                "accuracy": 1.0
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              }
+            ]
+          },
+          "ordinal_mae": 0.14133688804496547,
+          "latency": {
+            "n": 6,
+            "p50_s": 0.13275197949997164,
+            "p95_s": 0.14582019825024872
+          },
+          "latency_failures": {
+            "n": 0,
+            "p50_s": null,
+            "p95_s": null
+          },
+          "price_per_1000_decisions_usd": null,
+          "cost_basis": [
+            "local_apple_silicon_unmetered_compute_not_free"
+          ]
+        },
+        "ambiguous": {
+          "n_planned": 7,
+          "n_attempted": 7,
+          "n_scorable": 7,
+          "n_valid": 7,
+          "n_correct": 4,
+          "accuracy": 0.5714285714285714,
+          "coverage": 1.0,
+          "schema_validity": 1.0,
+          "schema_validity_strict": 1.0,
+          "n_renormalized": 0,
+          "operational_success": 1.0,
+          "calibration_n": 7,
+          "brier_mean": 0.5644740357751047,
+          "ece": {
+            "ece": 0.3875810749411249,
+            "n": 7,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 1,
+                "mean_confidence": 0.46397556599344697,
+                "accuracy": 0.0
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.6,
+                "hi": 0.7,
+                "n": 2,
+                "mean_confidence": 0.6341599046131831,
+                "accuracy": 1.0
+              },
+              {
+                "lo": 0.7,
+                "hi": 0.8,
+                "n": 1,
+                "mean_confidence": 0.750611584184323,
+                "accuracy": 0.0
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 2,
+                "mean_confidence": 0.8475791707114112,
+                "accuracy": 0.5
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 1,
+                "mean_confidence": 0.928358157786352,
+                "accuracy": 1.0
+              }
+            ]
+          },
+          "ordinal_mae": null,
+          "latency": {
+            "n": 7,
+            "p50_s": 0.19149500000003172,
+            "p95_s": 0.21576336629968862
+          },
+          "latency_failures": {
+            "n": 0,
+            "p50_s": null,
+            "p95_s": null
+          },
+          "price_per_1000_decisions_usd": null,
+          "cost_basis": [
+            "local_apple_silicon_unmetered_compute_not_free"
+          ]
+        },
+        "judge_hard": {
+          "n_planned": 17,
+          "n_attempted": 17,
+          "n_scorable": 17,
+          "n_valid": 17,
+          "n_correct": 7,
+          "accuracy": 0.4117647058823529,
+          "coverage": 1.0,
+          "schema_validity": 1.0,
+          "schema_validity_strict": 1.0,
+          "n_renormalized": 0,
+          "operational_success": 1.0,
+          "calibration_n": 17,
+          "brier_mean": 0.6739883088568291,
+          "ece": {
+            "ece": 0.30159314258421704,
+            "n": 17,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6,
+                "n": 3,
+                "mean_confidence": 0.5723398672418886,
+                "accuracy": 0.3333333333333333
+              },
+              {
+                "lo": 0.6,
+                "hi": 0.7,
+                "n": 1,
+                "mean_confidence": 0.679178699175393,
+                "accuracy": 0.0
+              },
+              {
+                "lo": 0.7,
+                "hi": 0.8,
+                "n": 12,
+                "mean_confidence": 0.7399110267551934,
+                "accuracy": 0.5
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 1,
+                "mean_confidence": 0.8519528019683106,
+                "accuracy": 0.0
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              }
+            ]
+          },
+          "ordinal_mae": null,
+          "latency": {
+            "n": 17,
+            "p50_s": 0.13836254199941322,
+            "p95_s": 0.15370783359976486
+          },
+          "latency_failures": {
+            "n": 0,
+            "p50_s": null,
+            "p95_s": null
+          },
+          "price_per_1000_decisions_usd": null,
+          "cost_basis": [
+            "local_apple_silicon_unmetered_compute_not_free"
+          ]
+        },
+        "long_policy": {
+          "n_planned": 19,
+          "n_attempted": 19,
+          "n_scorable": 19,
+          "n_valid": 17,
+          "n_correct": 2,
+          "accuracy": 0.10526315789473684,
+          "coverage": 1.0,
+          "schema_validity": 0.8947368421052632,
+          "schema_validity_strict": 0.8947368421052632,
+          "n_renormalized": 0,
+          "operational_success": 0.9473684210526315,
+          "calibration_n": 17,
+          "brier_mean": 1.1035161375541802,
+          "ece": {
+            "ece": 0.5417997233664589,
+            "n": 17,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 1,
+                "mean_confidence": 0.3163682123810394,
+                "accuracy": 0.0
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 1,
+                "mean_confidence": 0.46138764366910356,
+                "accuracy": 0.0
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6,
+                "n": 4,
+                "mean_confidence": 0.5660277841890932,
+                "accuracy": 0.0
+              },
+              {
+                "lo": 0.6,
+                "hi": 0.7,
+                "n": 2,
+                "mean_confidence": 0.6665454849589894,
+                "accuracy": 0.0
+              },
+              {
+                "lo": 0.7,
+                "hi": 0.8,
+                "n": 7,
+                "mean_confidence": 0.740974237962868,
+                "accuracy": 0.14285714285714285
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 2,
+                "mean_confidence": 0.8244088343826154,
+                "accuracy": 0.5
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              }
+            ]
+          },
+          "ordinal_mae": 0.8629287177465905,
+          "latency": {
+            "n": 19,
+            "p50_s": 0.7280141250002998,
+            "p95_s": 0.9756062287998247
+          },
+          "latency_failures": {
+            "n": 1,
+            "p50_s": 0.06006462499954068,
+            "p95_s": 0.06006462499954068
+          },
+          "price_per_1000_decisions_usd": null,
+          "cost_basis": [
+            "local_apple_silicon_unmetered_compute_not_free"
+          ]
+        },
+        "multi_hop": {
+          "n_planned": 18,
+          "n_attempted": 18,
+          "n_scorable": 18,
+          "n_valid": 17,
+          "n_correct": 1,
+          "accuracy": 0.05555555555555555,
+          "coverage": 1.0,
+          "schema_validity": 0.9444444444444444,
+          "schema_validity_strict": 0.9444444444444444,
+          "n_renormalized": 0,
+          "operational_success": 1.0,
+          "calibration_n": 17,
+          "brier_mean": 1.1233671263783738,
+          "ece": {
+            "ece": 0.5512010125929134,
+            "n": 17,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 1,
+                "mean_confidence": 0.2632323591154791,
+                "accuracy": 0.0
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 1,
+                "mean_confidence": 0.33407208669473526,
+                "accuracy": 0.0
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6,
+                "n": 8,
+                "mean_confidence": 0.5610052460225483,
+                "accuracy": 0.125
+              },
+              {
+                "lo": 0.6,
+                "hi": 0.7,
+                "n": 3,
+                "mean_confidence": 0.6611505120118187,
+                "accuracy": 0.0
+              },
+              {
+                "lo": 0.7,
+                "hi": 0.8,
+                "n": 1,
+                "mean_confidence": 0.7212405014462894,
+                "accuracy": 0.0
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 3,
+                "mean_confidence": 0.8601262542023943,
+                "accuracy": 0.0
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              }
+            ]
+          },
+          "ordinal_mae": 0.4074661863532736,
+          "latency": {
+            "n": 18,
+            "p50_s": 0.6305781869996281,
+            "p95_s": 0.7440861963993938
+          },
+          "latency_failures": {
+            "n": 0,
+            "p50_s": null,
+            "p95_s": null
+          },
+          "price_per_1000_decisions_usd": null,
+          "cost_basis": [
+            "local_apple_silicon_unmetered_compute_not_free"
+          ]
+        },
+        "probability": {
+          "n_planned": 10,
+          "n_attempted": 10,
+          "n_scorable": 10,
+          "n_valid": 10,
+          "n_correct": 3,
+          "accuracy": 0.3,
+          "coverage": 1.0,
+          "schema_validity": 1.0,
+          "schema_validity_strict": 1.0,
+          "n_renormalized": 0,
+          "operational_success": 1.0,
+          "calibration_n": 10,
+          "brier_mean": 0.9442829590821556,
+          "ece": {
+            "ece": 0.4242761829777354,
+            "n": 10,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6,
+                "n": 3,
+                "mean_confidence": 0.564007968453709,
+                "accuracy": 0.6666666666666666
+              },
+              {
+                "lo": 0.6,
+                "hi": 0.7,
+                "n": 4,
+                "mean_confidence": 0.6525638251600574,
+                "accuracy": 0.0
+              },
+              {
+                "lo": 0.7,
+                "hi": 0.8,
+                "n": 2,
+                "mean_confidence": 0.7370405887693374,
+                "accuracy": 0.5
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 1,
+                "mean_confidence": 0.8504492569595764,
+                "accuracy": 0.0
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              }
+            ]
+          },
+          "ordinal_mae": null,
+          "latency": {
+            "n": 10,
+            "p50_s": 0.2840469999996458,
+            "p95_s": 0.4540886208001209
+          },
+          "latency_failures": {
+            "n": 0,
+            "p50_s": null,
+            "p95_s": null
+          },
+          "price_per_1000_decisions_usd": null,
+          "cost_basis": [
+            "local_apple_silicon_unmetered_compute_not_free"
+          ]
+        },
+        "routing_hard": {
+          "n_planned": 5,
+          "n_attempted": 5,
+          "n_scorable": 5,
+          "n_valid": 5,
+          "n_correct": 0,
+          "accuracy": 0.0,
+          "coverage": 1.0,
+          "schema_validity": 1.0,
+          "schema_validity_strict": 1.0,
+          "n_renormalized": 0,
+          "operational_success": 1.0,
+          "calibration_n": 5,
+          "brier_mean": 1.4959134480813643,
+          "ece": {
+            "ece": 0.8203204625720019,
+            "n": 5,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.6,
+                "hi": 0.7,
+                "n": 1,
+                "mean_confidence": 0.6868285824816999,
+                "accuracy": 0.0
+              },
+              {
+                "lo": 0.7,
+                "hi": 0.8,
+                "n": 1,
+                "mean_confidence": 0.7858274161904717,
+                "accuracy": 0.0
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 2,
+                "mean_confidence": 0.8443050671596366,
+                "accuracy": 0.0
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 1,
+                "mean_confidence": 0.9403361798685644,
+                "accuracy": 0.0
+              }
+            ]
+          },
+          "ordinal_mae": null,
+          "latency": {
+            "n": 5,
+            "p50_s": 0.13995787500061851,
+            "p95_s": 0.14434770819971163
+          },
+          "latency_failures": {
+            "n": 0,
+            "p50_s": null,
+            "p95_s": null
+          },
+          "price_per_1000_decisions_usd": null,
+          "cost_basis": [
+            "local_apple_silicon_unmetered_compute_not_free"
+          ]
+        },
+        "temporal_numeric": {
+          "n_planned": 15,
+          "n_attempted": 15,
+          "n_scorable": 15,
+          "n_valid": 15,
+          "n_correct": 4,
+          "accuracy": 0.26666666666666666,
+          "coverage": 1.0,
+          "schema_validity": 1.0,
+          "schema_validity_strict": 1.0,
+          "n_renormalized": 0,
+          "operational_success": 1.0,
+          "calibration_n": 15,
+          "brier_mean": 0.9922190757422025,
+          "ece": {
+            "ece": 0.44140527977355637,
+            "n": 15,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 1,
+                "mean_confidence": 0.45072040985044015,
+                "accuracy": 0.0
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6,
+                "n": 3,
+                "mean_confidence": 0.5532094169769858,
+                "accuracy": 0.6666666666666666
+              },
+              {
+                "lo": 0.6,
+                "hi": 0.7,
+                "n": 6,
+                "mean_confidence": 0.6384175891406985,
+                "accuracy": 0.0
+              },
+              {
+                "lo": 0.7,
+                "hi": 0.8,
+                "n": 3,
+                "mean_confidence": 0.7405153629425406,
+                "accuracy": 0.6666666666666666
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 1,
+                "mean_confidence": 0.8519528019683106,
+                "accuracy": 0.0
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 1,
+                "mean_confidence": 0.9259826120437401,
+                "accuracy": 0.0
+              }
+            ]
+          },
+          "ordinal_mae": 1.0484739273097605,
+          "latency": {
+            "n": 15,
+            "p50_s": 0.21976983300010033,
+            "p95_s": 0.3485501831999499
+          },
+          "latency_failures": {
+            "n": 0,
+            "p50_s": null,
+            "p95_s": null
+          },
+          "price_per_1000_decisions_usd": null,
+          "cost_basis": [
+            "local_apple_silicon_unmetered_compute_not_free"
+          ]
+        },
+        "tradeoff": {
+          "n_planned": 6,
+          "n_attempted": 6,
+          "n_scorable": 6,
+          "n_valid": 6,
+          "n_correct": 3,
+          "accuracy": 0.5,
+          "coverage": 1.0,
+          "schema_validity": 1.0,
+          "schema_validity_strict": 1.0,
+          "n_renormalized": 0,
+          "operational_success": 1.0,
+          "calibration_n": 6,
+          "brier_mean": 0.7176478397379679,
+          "ece": {
+            "ece": 0.3021754515431992,
+            "n": 6,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6,
+                "n": 1,
+                "mean_confidence": 0.5915172155505313,
+                "accuracy": 1.0
+              },
+              {
+                "lo": 0.6,
+                "hi": 0.7,
+                "n": 2,
+                "mean_confidence": 0.6383854066418444,
+                "accuracy": 0.5
+              },
+              {
+                "lo": 0.7,
+                "hi": 0.8,
+                "n": 3,
+                "mean_confidence": 0.7092663705086792,
+                "accuracy": 0.3333333333333333
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              }
+            ]
+          },
+          "ordinal_mae": null,
+          "latency": {
+            "n": 6,
+            "p50_s": 0.2562452505003421,
+            "p95_s": 0.2760219685001175
+          },
+          "latency_failures": {
+            "n": 0,
+            "p50_s": null,
+            "p95_s": null
+          },
+          "price_per_1000_decisions_usd": null,
+          "cost_basis": [
+            "local_apple_silicon_unmetered_compute_not_free"
+          ]
+        },
+        "trap": {
+          "n_planned": 8,
+          "n_attempted": 8,
+          "n_scorable": 8,
+          "n_valid": 8,
+          "n_correct": 1,
+          "accuracy": 0.125,
+          "coverage": 1.0,
+          "schema_validity": 1.0,
+          "schema_validity_strict": 1.0,
+          "n_renormalized": 0,
+          "operational_success": 1.0,
+          "calibration_n": 8,
+          "brier_mean": 1.0600235924438328,
+          "ece": {
+            "ece": 0.5608743411719878,
+            "n": 8,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 1,
+                "mean_confidence": 0.4678876638620664,
+                "accuracy": 0.0
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6,
+                "n": 3,
+                "mean_confidence": 0.5597881959058227,
+                "accuracy": 0.3333333333333333
+              },
+              {
+                "lo": 0.6,
+                "hi": 0.7,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.7,
+                "hi": 0.8,
+                "n": 2,
+                "mean_confidence": 0.7772998611746911,
+                "accuracy": 0.0
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 1,
+                "mean_confidence": 0.8329241094603547,
+                "accuracy": 0.0
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 1,
+                "mean_confidence": 0.9522186459866306,
+                "accuracy": 0.0
+              }
+            ]
+          },
+          "ordinal_mae": 1.5787471261187447,
+          "latency": {
+            "n": 8,
+            "p50_s": 0.13775879199965857,
+            "p95_s": 0.1524696977003714
+          },
+          "latency_failures": {
+            "n": 0,
+            "p50_s": null,
+            "p95_s": null
+          },
+          "price_per_1000_decisions_usd": null,
+          "cost_basis": [
+            "local_apple_silicon_unmetered_compute_not_free"
+          ]
+        }
+      },
+      "complete": true,
+      "paraphrase_consistency": {
+        "pairs": 0,
+        "both_valid": 0,
+        "agree": 0,
+        "agreement": null,
+        "both_correct_rate_all_pairs": null
+      },
+      "model_identities": [
+        "2fc06364715b967f1860aea9cf38778875588b17"
+      ],
+      "probability_sources": [
+        "label_only_no_calibrated_distribution",
+        "native",
+        "unknown"
+      ],
+      "splits": {
+        "public": {
+          "n_planned": 111,
+          "n_attempted": 111,
+          "n_scorable": 111,
+          "n_valid": 108,
+          "n_correct": 29,
+          "accuracy": 0.26126126126126126,
+          "coverage": 1.0,
+          "schema_validity": 0.972972972972973,
+          "schema_validity_strict": 0.972972972972973,
+          "n_renormalized": 0,
+          "operational_success": 0.990990990990991,
+          "calibration_n": 108,
+          "brier_mean": 0.935321650047669,
+          "ece": {
+            "ece": 0.4092130687418429,
+            "n": 108,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 0,
+                "mean_confidence": null,
+                "accuracy": null
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 1,
+                "mean_confidence": 0.2632323591154791,
+                "accuracy": 0.0
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 2,
+                "mean_confidence": 0.32522014953788736,
+                "accuracy": 0.0
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 4,
+                "mean_confidence": 0.46099282084376425,
+                "accuracy": 0.0
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6,
+                "n": 27,
+                "mean_confidence": 0.5647687173337155,
+                "accuracy": 0.3333333333333333
+              },
+              {
+                "lo": 0.6,
+                "hi": 0.7,
+                "n": 22,
+                "mean_confidence": 0.6523741018165282,
+                "accuracy": 0.18181818181818182
+              },
+              {
+                "lo": 0.7,
+                "hi": 0.8,
+                "n": 33,
+                "mean_confidence": 0.7409148711169558,
+                "accuracy": 0.3333333333333333
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 15,
+                "mean_confidence": 0.8426197021355968,
+                "accuracy": 0.26666666666666666
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 4,
+                "mean_confidence": 0.9367238989213218,
+                "accuracy": 0.25
+              }
+            ]
+          },
+          "ordinal_mae": 0.8169802605533208,
+          "latency": {
+            "n": 111,
+            "p50_s": 0.21601704099975905,
+            "p95_s": 0.8793792914998448
+          },
+          "latency_failures": {
+            "n": 1,
+            "p50_s": 0.06006462499954068,
+            "p95_s": 0.06006462499954068
+          },
+          "price_per_1000_decisions_usd": null,
+          "cost_basis": [
+            "local_apple_silicon_unmetered_compute_not_free"
+          ]
+        }
+      },
+      "ledger_charged_usd": null
+    }
+  }
+}
