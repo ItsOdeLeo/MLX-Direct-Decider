@@ -21,7 +21,7 @@ Reuse a compatible [MLX-LM](https://github.com/ml-explore/mlx-lm) checkpoint for
   <img src="docs/assets/badges/apple-silicon.svg" alt="Apple Silicon" />
   <img src="docs/assets/badges/python.svg" alt="Python 3.11+" />
   <a href="LICENSE"><img src="docs/assets/badges/license.svg" alt="MIT License" /></a>
-  <a href="CHANGELOG.md"><img src="docs/assets/badges/release.svg" alt="0.2 experimental, on PyPI" /></a>
+  <a href="CHANGELOG.md"><img src="docs/assets/badges/release.svg" alt="0.2 experimental, GitHub release" /></a>
 </p>
 
 <p align="center">
@@ -51,7 +51,7 @@ Reuse a compatible [MLX-LM](https://github.com/ml-explore/mlx-lm) checkpoint for
 
 Embed it in an existing tool: open a feature, select a visible item, pause a player, or answer a boolean / enum question. Inference runs on your Mac with an existing checkpoint; no training is required.
 
-> **Project and package:** The project is MLX Direct Decider. The distribution and CLI are `mlx-direct-decider`, with Python imports from `mlx_direct_decider`. Version 0.2 is experimental and is published on PyPI.
+> **Project and package:** The project is MLX Direct Decider. The distribution and CLI are `mlx-direct-decider`, with Python imports from `mlx_direct_decider`. Version 0.2 is experimental and is released on GitHub; it is not on PyPI.
 
 | Capability | What it means for your application |
 | :--- | :--- |
@@ -69,12 +69,12 @@ Models can make mistakes. Candidate scores rank choices and are **not calibrated
 
 Requires **Apple Silicon, native ARM Python 3.11+**, and a local MLX-LM checkpoint. Start with the verified Qwen checkpoint in the [model table](docs/models.md).
 
-Install from PyPI:
+Install the v0.2.0 release from GitHub:
 
 ```sh
 python3 -m venv .venv
 source .venv/bin/activate
-python -m pip install 'mlx-direct-decider[mlx]'
+python -m pip install "mlx-direct-decider[mlx] @ git+https://github.com/ItsOdeLeo/MLX-Direct-Decider@v0.2.0"
 export MLX_DIRECT_MODEL=/absolute/path/to/your/local/mlx-model
 ```
 
@@ -319,7 +319,7 @@ No. Reuse a compatible local MLX-LM checkpoint, or an MLX-VLM checkpoint for exp
 
 ### How do I install MLX Direct Decider?
 
-Create a native ARM Python 3.11+ environment and run `python -m pip install 'mlx-direct-decider[mlx]'`. Add `vlm` to the extras for image decisions. Set `MLX_DIRECT_MODEL` to your local checkpoint directory. Follow the [quick start](#quick-start) for a runnable example. Version 0.2 is experimental. To work from source, clone [ItsOdeLeo/MLX-Direct-Decider](https://github.com/ItsOdeLeo/MLX-Direct-Decider) and run `python -m pip install -e '.[mlx]'`.
+Create a native ARM Python 3.11+ environment and run `python -m pip install "mlx-direct-decider[mlx] @ git+https://github.com/ItsOdeLeo/MLX-Direct-Decider@v0.2.0"`. Use `[mlx,vlm]` for image decisions. Set `MLX_DIRECT_MODEL` to your local checkpoint directory. Follow the [quick start](#quick-start) for a runnable example. Version 0.2 is experimental. To work from source, clone [ItsOdeLeo/MLX-Direct-Decider](https://github.com/ItsOdeLeo/MLX-Direct-Decider) and run `python -m pip install -e '.[mlx]'`.
 
 ### How fast is local MLX action selection?
 

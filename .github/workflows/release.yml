@@ -1,12 +1,12 @@
 name: Publish to PyPI
 
-# Publishing a GitHub Release builds the distributions and uploads them to PyPI
-# through Trusted Publishing (OIDC). The repository stores no PyPI token.
-# Only the release event triggers this workflow. Pushing a v* tag does not, so a
-# version is never uploaded twice.
+# Builds the distributions and uploads them to PyPI through Trusted Publishing
+# (OIDC). The repository stores no PyPI token.
+# v0.2.0 ships on GitHub only, so this runs only when started by hand. Once the
+# PyPI trusted publisher exists, run it on the v0.2.0 tag to upload that release,
+# or switch the trigger back to `release: types: [published]`.
 on:
-  release:
-    types: [published]
+  workflow_dispatch:
 
 permissions:
   contents: read

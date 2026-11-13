@@ -21,7 +21,7 @@
   <img src="docs/assets/badges/apple-silicon.svg" alt="Apple Silicon" />
   <img src="docs/assets/badges/python.svg" alt="Python 3.11+" />
   <a href="LICENSE.zh-CN.md"><img src="docs/assets/badges/license.svg" alt="MIT License" /></a>
-  <a href="CHANGELOG.zh-CN.md"><img src="docs/assets/badges/release.svg" alt="0.2 experimental, on PyPI" /></a>
+  <a href="CHANGELOG.zh-CN.md"><img src="docs/assets/badges/release.svg" alt="0.2 experimental, GitHub release" /></a>
 </p>
 
 <p align="center">
@@ -51,7 +51,7 @@
 
 它适合嵌入你已有的工具：切换一个入口、选择当前列表里的内容、暂停播放器，或做一个 boolean / enum 判断。模型在 Mac 上运行，权重由你选择；无需先训练新模型。
 
-> **项目与包名：** 项目名为 MLX Direct Decider，发行包与命令为 `mlx-direct-decider`，Python 导入为 `mlx_direct_decider`。0.2 是实验版，已发布到 PyPI。
+> **项目与包名：** 项目名为 MLX Direct Decider，发行包与命令为 `mlx-direct-decider`，Python 导入为 `mlx_direct_decider`。0.2 是实验版，已在 GitHub 发布，尚未上传到 PyPI。
 
 | 能力 | 在应用里意味着什么 |
 | :--- | :--- |
@@ -69,12 +69,12 @@
 
 需要 **Apple Silicon Mac、原生 ARM Python 3.11+**，以及本地 MLX-LM 模型权重。建议先从已验证的 Qwen 检查点开始，具体版本见[支持模型](docs/models.zh-CN.md)。
 
-从 PyPI 安装：
+从 GitHub 安装 v0.2.0 版本：
 
 ```sh
 python3 -m venv .venv
 source .venv/bin/activate
-python -m pip install 'mlx-direct-decider[mlx]'
+python -m pip install "mlx-direct-decider[mlx] @ git+https://github.com/ItsOdeLeo/MLX-Direct-Decider@v0.2.0"
 export MLX_DIRECT_MODEL=/absolute/path/to/your/local/mlx-model
 ```
 
@@ -304,7 +304,7 @@ MLX Direct Decider 为已有兼容的因果 MLX-LM 检查点增加有限候选�
 
 ### 如何安装 MLX Direct Decider？
 
-创建原生 ARM Python 3.11+ 环境，运行 `python -m pip install 'mlx-direct-decider[mlx]'`；如需图片决策，在 extras 里加上 `vlm`。将 `MLX_DIRECT_MODEL` 设为本地检查点目录。[快速开始](#quick-start)提供可运行示例。0.2 是实验版。如需从源码开发，可克隆 [ItsOdeLeo/MLX-Direct-Decider](https://github.com/ItsOdeLeo/MLX-Direct-Decider)，在仓库目录运行 `python -m pip install -e '.[mlx]'`。
+创建原生 ARM Python 3.11+ 环境，运行 `python -m pip install "mlx-direct-decider[mlx] @ git+https://github.com/ItsOdeLeo/MLX-Direct-Decider@v0.2.0"`；如需图片决策，把 `[mlx]` 换成 `[mlx,vlm]`。将 `MLX_DIRECT_MODEL` 设为本地检查点目录。[快速开始](#quick-start)提供可运行示例。0.2 是实验版。如需从源码开发，可克隆 [ItsOdeLeo/MLX-Direct-Decider](https://github.com/ItsOdeLeo/MLX-Direct-Decider)，在仓库目录运行 `python -m pip install -e '.[mlx]'`。
 
 ### 本地 MLX 动作选择有多快？
 

@@ -4,7 +4,7 @@
 
 ## 0.2.0 — 2026-11-12
 
-首个发布到 PyPI 和 GitHub Releases 的版本。
+首个正式版本，发布在 GitHub Releases。安装方式：`pip install "mlx-direct-decider[mlx] @ git+https://github.com/ItsOdeLeo/MLX-Direct-Decider@v0.2.0"`。
 
 - `MLXLMBackend`、`from_loaded_model` 和 `MLXDecisionEngine` 新增可选参数
   `prompt_layout="state_first"`：状态放在问题前面，共享「系统提示 + 状态」快照，
